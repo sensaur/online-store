@@ -10,6 +10,11 @@ const baseConfig = {
     module: {
         rules: [
             {
+                test:/\.scss$/,
+                use:['style-loader','css-loader', 'resolve-url-loader','sass-loader']
+
+            },
+            {
                 test: /\.css$/i,
                 use: ['style-loader', 'css-loader'],
             },
