@@ -9,9 +9,55 @@
 </head>
 <body>
 <header>
-    <h1>Скоро здесь будет магазин</h1>
+    <div class="wrapper header__wrapper">
+        <div class="brand"></div>
+        <div class="total-price"></div>
+        <div class="cart"></div>
+    </div>
 </header>
 <main>
+    <div class="main-page">
+        <div class="wrapper main-page__wrapper">
+            <div class="filters">
+                <div class="wrapper filters__wrapper">
+                    <div class="reset-link">
+                       <button class="button reset-link__button button_reset"></button>
+                       <button class="button reset-link__button button_link"></button>
+                    </div>
+                </div>
+                <div class="filter filter_category">
+                    <h3 class="subtitle filter__subtitle">Category</h3>
+                    <div class="list filter__list filter__list_category">
+                        <div class="checkbox-line list__checkbox-line checkbox-line_active">
+                            <input type="checkbox" class="checkbox-line__checkbox">
+                            <label class="label checkbox-line__label" for=""></label>
+                            <span class="data-filter checkbox-line__data-filter"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter filter_brand">
+                    <h3 class="subtitle filter__subtitle">Brand</h3>
+                    <div class="list filter__list filter__list_brand">
+                        <div class="checkbox-line list__checkbox-line checkbox-line_active">
+                            <input type="checkbox" class="checkbox-line__checkbox">
+                            <label class="label checkbox-line__label" for=""></label>
+                            <span class="data-filter checkbox-line__data-filter"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter filter_price">
+                    <h3 class="subtitle filter__subtitle">Price</h3>
+                    <div class="list filter__list filter__list_price">
+                        <div class="checkbox-line list__checkbox-line checkbox-line_active">
+                            <input type="checkbox" class="checkbox-line__checkbox">
+                            <label class="label checkbox-line__label" for=""></label>
+                            <span class="data-filter checkbox-line__data-filter"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 <footer>
 </footer>
