@@ -9,14 +9,99 @@
 </head>
 <body>
 <header>
-    <h1>Скоро здесь будет магазин</h1>
+    <div class="wrapper header__wrapper">
+        <div class="brand"></div>
+        <div class="total-price"></div>
+        <div class="cart"></div>
+    </div>
 </header>
 <main>
+    <div class="main-page">
+        <div class="wrapper main-page__wrapper">
+            <div class="filters">
+                <div class="reset-link">
+                    <button class="button reset-link__button button_reset"></button>
+                    <button class="button reset-link__button button_link"></button>
+                </div>
+                <div class="filter filter_category">
+                    <h3 class="subtitle filter__subtitle">Category</h3>
+                    <div class="list filter__list filter__list_category">
+                        <div class="checkbox-line list__checkbox-line checkbox-line_active">
+                            <input type="checkbox" class="checkbox-line__checkbox">
+                            <label class="label checkbox-line__label" for=""></label>
+                            <span class="data-filter checkbox-line__data-filter"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter filter_brand">
+                    <h3 class="subtitle filter__subtitle">Brand</h3>
+                    <div class="list filter__list filter__list_brand">
+                        <div class="checkbox-line list__checkbox-line checkbox-line_active">
+                            <input type="checkbox" class="checkbox-line__checkbox">
+                            <label class="label checkbox-line__label" for=""></label>
+                            <span class="data checkbox-line__data"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="filter filter_price">
+                    <h3 class="subtitle filter__subtitle">Price</h3>
+                    <div class="list filter__list filter__list_price">
+                        <div class="multirange list__multirange">
+                            <div class="data multirange__data">
+                                <span class="multirange__data_from"></span>
+                                <span class="multirange__data_arrows"></span>
+                                <span class="multirange__data_to"></span>
+                            </div>
+                            <input type="range" min="0" max="48" class="range multirange__range">
+                            <input type="range" min="0" max="48" class="range multirange__range">
+                        </div>
+                    </div>
+                </div>
+                <div class="filter filter_stock">
+                    <h3 class="subtitle filter__subtitle">Stock</h3>
+                    <div class="list filter__list filter__list_stock">
+                        <div class="multirange list__multirange">
+                            <div class="data multirange__data">
+                                <span class="multirange__data_from"></span>
+                                <span class="multirange__data_arrows"></span>
+                                <span class="multirange__data_to"></span>
+                            </div>
+                            <input type="range" min="0" max="48" class="range multirange__range">
+                            <input type="range" min="0" max="48" class="range multirange__range">       
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="products">
+                <div class="sort-search products__sort-search">
+                    <div class="sort">
+                        <select name="sort" id="sort" class="select sort__select">
+                            <option value="sort-title" disabled selected class="sort__select_name">Sort options:</option>
+                            <option value="price-ASC" class="sort__select_option">Sort by price ACS</option>
+                            <option value="price-DESC" class="sort__select_option">Sort by price DECS</option>
+                            <option value="rating-ASC" class="sort__select_option">Sort by rating ACS</option>
+                            <option value="rating-DESC" class="sort__select_option">Sort by rating DECS</option>
+                        </select>
+                    </div>
+                    <div class="stat">
+                        Found: 32
+                    </div>
+                    <div class="search">
+                        <input type="search" name="search" id="search" placeholder="Search product">
+                    </div>
+                    <div class="view-mode">
+                        <div class="view-mode__small"></div> 
+                        <div class="view-mode__big"></div>  
+                    </div>
+                </div>
+                <div class="items products__items">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 </main>
 <footer>
 </footer>
-
-
-<script src="./index.js"></script>
 </body>
 </html>
