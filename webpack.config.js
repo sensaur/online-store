@@ -20,9 +20,10 @@ const baseConfig = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-                test: /\.ts$/i,
+                test: /\.tsx?$/,
                 use: 'ts-loader',
-            },
+                exclude: /node_modules/,
+              },
             {
                 test: /\.(gif|png|jpg|jpeg|svg|mp3|webm|ico)$/i,
                 type: 'asset/resource',
@@ -33,8 +34,21 @@ const baseConfig = {
         extensions: ['.js', '.ts'],
     },
     output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, './dist'),
+        path: path.resolve(__dirname, 'dist'),
+        filename: '[name][contenthash].js',
+        clean: true,
+        assetModuleFilename: '[name][ext]',
+    },
+    devtool: 'source-map',
+    devServer: {
+        static: {
+            directory: path.resolve(__dirname,'dist')
+        },
+        port: 3000,
+        open: true,
+        hot: true,
+        compress: true,
+       
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -51,7 +65,7 @@ const baseConfig = {
                 to: path.resolve(__dirname, './dist')
               },
               {
-                from: path.resolve(__dirname, './src/assets/favicon.ico'),
+                from: path.resolve(__dirname, './src/favicon.ico'),
                 to: path.resolve(__dirname, './dist')
               },
           ]
