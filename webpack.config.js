@@ -11,9 +11,8 @@ const baseConfig = {
     module: {
         rules: [
             {
-                test:/\.scss$/,
-                use:['style-loader','css-loader', 'resolve-url-loader','sass-loader']
-
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
             },
             {
                 test: /\.css$/i,
@@ -23,7 +22,7 @@ const baseConfig = {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
-              },
+            },
             {
                 test: /\.(gif|png|jpg|jpeg|svg|mp3|webm|ico)$/i,
                 type: 'asset/resource',
@@ -42,13 +41,12 @@ const baseConfig = {
     devtool: 'source-map',
     devServer: {
         static: {
-            directory: path.resolve(__dirname,'dist')
+            directory: path.resolve(__dirname, 'dist'),
         },
         port: 3000,
         open: true,
         hot: true,
         compress: true,
-       
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -60,15 +58,15 @@ const baseConfig = {
         new ESLintPlugin(),
         new CopyWebpackPlugin({
             patterns: [
-             {
-                from: path.resolve(__dirname, './src/assets/img'),
-                to: path.resolve(__dirname, './dist')
-              },
-              {
-                from: path.resolve(__dirname, './src/favicon.ico'),
-                to: path.resolve(__dirname, './dist')
-              },
-          ]
+                {
+                    from: path.resolve(__dirname, './src/assets/img'),
+                    to: path.resolve(__dirname, './dist'),
+                },
+                {
+                    from: path.resolve(__dirname, './src/favicon.ico'),
+                    to: path.resolve(__dirname, './dist'),
+                },
+            ],
         }),
     ],
 };
