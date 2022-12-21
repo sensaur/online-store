@@ -40,7 +40,7 @@ const baseConfig = {
         assetModuleFilename: '[name][ext]',
     },
     devtool: 'source-map',
-    devServer: {
+  /*  devServer: {
         static: {
             directory: path.resolve(__dirname,'dist')
         },
@@ -49,7 +49,7 @@ const baseConfig = {
         hot: true,
         compress: true,
        
-    },
+    },*/
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html'),
@@ -62,6 +62,14 @@ const baseConfig = {
             patterns: [
              {
                 from: path.resolve(__dirname, './src/assets/img'),
+                to: path.resolve(__dirname, './dist')
+              },
+              {
+                from: path.resolve(__dirname, './src/assets/svg'),
+                to: path.resolve(__dirname, './dist')
+              },
+              {
+                from: path.resolve(__dirname, './src/assets/png'),
                 to: path.resolve(__dirname, './dist')
               },
               {

@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
+    "start": "webpack serve --open",
     "build": "webpack --config ./webpack.config.js --env mode=prod",
+    "watch": "webpack --mode development --watch",
     "lint": "eslint . --ext .ts"
   },
   "repository": {
