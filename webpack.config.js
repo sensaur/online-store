@@ -45,6 +45,11 @@ const baseConfig = {
             filename: 'index.html',
             favicon: './src/favicon.ico',
         }),
+        new HtmlWebpackPlugin({
+            template: path.resolve(__dirname, './src/productDetailedPage.html'),
+            filename: 'productDetailedPage.html',
+            favicon: './src/favicon.ico',
+        }),
         new CleanWebpackPlugin(),
         new ESLintPlugin(),
         new CopyWebpackPlugin({
