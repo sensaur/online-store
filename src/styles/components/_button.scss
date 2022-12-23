@@ -1,7 +1,22 @@
 .button{
-    background-color: rgba($color-additional, $alpha: 1);
     color: $color-white;
     padding: 2%;
     font-size: 2rem;
     border-style: none;
+    background-color: $color-additional;
+    font-weight: 300;
+    cursor: pointer;
+    &:hover{
+        background-color: $brand-color2;
+        color: $color-text-dark;
+        font-weight: 400;
+    }
+}
+
+.button_reset{
+    color: $color-buttons;
+}
+
+.button_link{
+    color: $color-button-hover;
 }
