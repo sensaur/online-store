@@ -1,0 +1,87 @@
+.multirange__data{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+.dual-slider{
+    position: relative;
+    height: 0.3rem;
+    border-radius: 5px;
+    .range{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        outline: none;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        background-color: transparent;
+        pointer-events: none;
+        &::-moz-range-thumb{
+            -webkit-appearance: none;
+            height: 1.5rem;
+            width: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: $color-button-hover;
+            pointer-events: auto;
+        }
+        &::-webkit-slider-runnable-track{
+            -webkit-appearance: none;
+            height: 5px;
+        }
+    
+        &::-moz-range-track{
+            -moz-appearance: none;
+            height: 5px;
+        }
+        &::-webkit-slider-thumb{
+            -webkit-appearance: none;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: $color-button-hover;
+            cursor: pointer;
+            margin-top: -5px;
+            pointer-events: auto;
+            border-radius: 50%;
+        }
+    
+        &::-moz-range-thumb{
+            -webkit-appearance: none;
+            height: 1.5rem;
+            width: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: $color-button-hover;
+            pointer-events: auto;
+        }
+        &::-ms-thumb{
+            appearance: none;
+            height: 1.5rem;
+            width: 1.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: $color-button-hover;
+            pointer-events: auto;
+        }
+        &:active::-webkit-slider-thumb{
+            background-color: #ffffff;
+            border: 3px solid $color-additional;
+        }
+    }
+   
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -16,11 +16,11 @@
         "node": true
     },
     "rules": {
-        "no-debugger": "off",
-        "no-console": 0,
-        "class-methods-use-this": "off",
+       "no-debugger": "off",
+       "no-console": 0,
+       "class-methods-use-this": "off",
         "@typescript-eslint/no-var-requires": 0,
-        "@typescript-eslint/no-explicit-any": "warn"
+        "@typescript-eslint/no-explicit-any": "error",
     },
     "parser": "@typescript-eslint/parser",
     "root": true
