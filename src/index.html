@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -10,9 +10,17 @@
 <body>
 <header>
     <div class="wrapper header__wrapper">
-        <div class="brand"></div>
-        <div class="total-price"></div>
-        <div class="cart"></div>
+        <div class="brand">
+            <a href="index.html" class="link-home">
+                <h1 class="brand-name">ONLINE SPANISH STORE</h1>
+                <img src="./logo.svg" alt="Online Spanish Store" class="brand-img">
+            </a>      
+        </div>
+        <div class="total-price">Total cart: <span class="total">100</span></div>
+        <div class="cart">
+            <img src="./cart.png" alt="Cart" class="cart-img">
+            <div class="cart-content">1</div>
+        </div>
     </div>
     <div><a href="productDetailedPage.html">Страница с описанием товара</a></div>
 </header>
@@ -21,16 +29,25 @@
         <div class="wrapper main-page__wrapper">
             <div class="filters">
                 <div class="reset-link">
-                    <button class="button reset-link__button button_reset"></button>
-                    <button class="button reset-link__button button_link"></button>
+                    <button class="button reset-link__button button_reset">Reset Filters</button>
+                    <button class="button reset-link__button button_link">Copy Link</button>
                 </div>
                 <div class="filter filter_category">
                     <h3 class="subtitle filter__subtitle">Category</h3>
                     <div class="list filter__list filter__list_category">
                         <div class="checkbox-line list__checkbox-line checkbox-line_active">
-                            <input type="checkbox" class="checkbox-line__checkbox">
-                            <label class="label checkbox-line__label" for=""></label>
-                            <span class="data-filter checkbox-line__data-filter"></span>
+                            <div class="wrapper_checkbox">
+                                <input type="checkbox" class="checkbox-line__checkbox">
+                                <label class="label checkbox-line__label" for="">Wine</label>
+                            </div>
+                            <span class="data-filter checkbox-line__data-filter">(5/5)</span>
+                        </div>
+                        <div class="checkbox-line list__checkbox-line checkbox-line_active">
+                            <div class="wrapper_checkbox">
+                                <input type="checkbox" class="checkbox-line__checkbox">
+                                <label class="label checkbox-line__label" for="">Cheese</label>
+                            </div>
+                            <span class="data-filter checkbox-line__data-filter">(4/4)</span>
                         </div>
                     </div>
                 </div>
@@ -47,14 +64,16 @@
                 <div class="filter filter_price">
                     <h3 class="subtitle filter__subtitle">Price</h3>
                     <div class="list filter__list filter__list_price">
-                        <div class="multirange list__multirange">
+                        <div class="multirange list__multirange multirange_price">
                             <div class="data multirange__data">
-                                <span class="multirange__data_from"></span>
+                                <span class="multirange__data_from">€10</span>
                                 <span class="multirange__data_arrows"></span>
-                                <span class="multirange__data_to"></span>
+                                <span class="multirange__data_to">€100</span>
                             </div>
-                            <input type="range" min="0" max="48" class="range multirange__range">
-                            <input type="range" min="0" max="48" class="range multirange__range">
+                            <div class="dual-slider multirange__dual-slider">
+                                <input type="range" min="0" max="48" value="10"  class="range multirange__range">
+                                <input type="range" min="0" max="48" value="35"  class="range multirange__range range_top">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,6 +132,9 @@
     </div>
 </main>
 <footer>
+    <div class="wrapper footer__wrapper">
+        Online Store 2022
+    </div>
 </footer>
 </body>
 </html>
