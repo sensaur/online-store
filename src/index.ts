@@ -1,8 +1,18 @@
 import './styles/main.scss';
-import Multirange from './components/app/getMultirange';
+import getDualSliderWorking from './components/app/getDualSliderWorking';
 
 let multirangeBlockPrice = document.querySelector(".multirange_price");
+let multirangeBlockStock = document.querySelector(".multirange_stock");
+
 if (multirangeBlockPrice instanceof HTMLElement){
+    getDualSliderWorking(multirangeBlockPrice);
+}
+
+if (multirangeBlockStock instanceof HTMLElement){
+    getDualSliderWorking(multirangeBlockStock);
+}
+
+/*if (multirangeBlockPrice instanceof HTMLElement){
     const multirangePrice = new Multirange(multirangeBlockPrice);
     multirangePrice.getMultirangeData();
     let slidersArr = multirangeBlockPrice.querySelectorAll(".range");
@@ -16,7 +26,7 @@ if (multirangeBlockPrice instanceof HTMLElement){
             multirangePrice.getMultirangeData();
         }
     } 
-}
+}*/
 
 
 /*window.onload = function(){

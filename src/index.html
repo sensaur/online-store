@@ -70,8 +70,8 @@
                                 <span class="multirange__data_to">€100</span>
                             </div>
                             <div class="dual-slider multirange__dual-slider">
-                                <input type="range" min="0" max="48" value="10"  class="range multirange__range">
-                                <input type="range" min="0" max="48" value="35"  class="range multirange__range range_top">
+                                <input type="range" min="0" max="48" value="10"  class="range multirange__range range_from">
+                                <input type="range" min="0" max="48" value="35"  class="range multirange__range range_to">
                             </div>
                         </div>
                     </div>
@@ -79,14 +79,16 @@
                 <div class="filter filter_stock">
                     <h3 class="subtitle filter__subtitle">Stock</h3>
                     <div class="list filter__list filter__list_stock">
-                        <div class="multirange list__multirange">
+                        <div class="multirange list__multirange multirange_stock">
                             <div class="data multirange__data">
                                 <span class="multirange__data_from"></span>
                                 <span class="multirange__data_arrows"></span>
                                 <span class="multirange__data_to"></span>
                             </div>
-                            <input type="range" min="0" max="48" class="range multirange__range">
-                            <input type="range" min="0" max="48" class="range multirange__range">       
+                            <div class="dual-slider multirange__dual-slider">
+                                <input type="range" min="0" max="48" value="10" class="range multirange__range range_from">
+                                <input type="range" min="0" max="48" value="35" class="range multirange__range range_to">     
+                            </div>    
                         </div>
                     </div>
                 </div>
