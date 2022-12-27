@@ -46,8 +46,8 @@ const baseConfig = {
             favicon: './src/favicon.ico',
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, './src/productDetailedPage.html'),
-            filename: 'productDetailedPage.html',
+            template: path.resolve(__dirname, './src/card.html'),
+            filename: 'card.html',
             favicon: './src/favicon.ico',
         }),
         new CleanWebpackPlugin(),
@@ -59,14 +59,14 @@ const baseConfig = {
                     to: path.resolve(__dirname, './dist'),
                 },
                 {
-                from: path.resolve(__dirname, './src/assets/svg'),
-                to: path.resolve(__dirname, './dist')
-              },
-              {
-                from: path.resolve(__dirname, './src/assets/png'),
-                to: path.resolve(__dirname, './dist')
-              },
-              {
+                    from: path.resolve(__dirname, './src/assets/svg'),
+                    to: path.resolve(__dirname, './dist'),
+                },
+                {
+                    from: path.resolve(__dirname, './src/assets/png'),
+                    to: path.resolve(__dirname, './dist'),
+                },
+                {
                     from: path.resolve(__dirname, './src/favicon.ico'),
                     to: path.resolve(__dirname, './dist'),
                 },
