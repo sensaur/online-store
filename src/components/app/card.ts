@@ -1,4 +1,4 @@
-window.onload = function () {
+const slider = function () {
     //// SLIDER
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slider = document.getElementsByClassName('sliderBlock_items');
@@ -53,3 +53,5 @@ window.onload = function () {
 
     goToSlideAfterPushTheMiniBlock();
 };
+
+export default slider;
