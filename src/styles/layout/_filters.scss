@@ -1,11 +1,12 @@
 .filters{
     padding: 1%;
+    width: 25%;
     color: $color-additional;
     .reset-link{
         display: flex;
-        justify-content: space-between;
-        background-color: $color-additional;
-        padding: 5%;
+        justify-content: space-around;
+        padding: 1%;
+       
     }
     .filter{
         display: flex;
@@ -31,8 +32,11 @@
             }
         }
 
-
         
     }
    
+}
+
+.filter_stock{
+    margin-bottom: 3em;
 }

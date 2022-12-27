@@ -1,0 +1,23 @@
+.footer__wrapper{
+    background-color: rgba($brand-color2, $alpha: 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    color: $color-additional;
+    .footer__links{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+       
+        .img-rssschool{
+            width: 90px;
+            height: 30px;
+        }
+        .img-github{
+            width: 30px;
+            height: 30px;
+        }
+
+    } 
+}
