@@ -8,7 +8,7 @@
     <title>OnlineStore</title>
 </head>
 <body>
-<header>
+<header class="header">
     <div class="wrapper header__wrapper">
         <div class="brand">
             <a href="index.html" class="link-home">
@@ -22,16 +22,11 @@
             <div class="cart-content">1</div>
         </div>
     </div>
-    <div><a href="card.html">Страница с описанием товара</a></div>
 </header>
 <main>
     <div class="main-page">
         <div class="wrapper main-page__wrapper">
             <div class="filters">
-                <div class="reset-link">
-                    <button class="button reset-link__button button_reset">Reset Filters</button>
-                    <button class="button reset-link__button button_link">Copy Link</button>
-                </div>
                 <div class="filter filter_category">
                     <h3 class="subtitle filter__subtitle">Category</h3>
                     <div class="list filter__list filter__list_category">
@@ -71,8 +66,8 @@
                                 <span class="multirange__data_to">€100</span>
                             </div>
                             <div class="dual-slider multirange__dual-slider">
-                                <input type="range" min="0" max="48" value="10"  class="range multirange__range">
-                                <input type="range" min="0" max="48" value="35"  class="range multirange__range range_top">
+                                <input type="range" min="0" max="48" value="10"  class="range multirange__range range_from">
+                                <input type="range" min="0" max="48" value="35"  class="range multirange__range range_to">
                             </div>
                         </div>
                     </div>
@@ -80,48 +75,45 @@
                 <div class="filter filter_stock">
                     <h3 class="subtitle filter__subtitle">Stock</h3>
                     <div class="list filter__list filter__list_stock">
-                        <div class="multirange list__multirange">
+                        <div class="multirange list__multirange multirange_stock">
                             <div class="data multirange__data">
                                 <span class="multirange__data_from"></span>
                                 <span class="multirange__data_arrows"></span>
                                 <span class="multirange__data_to"></span>
                             </div>
-                            <input type="range" min="0" max="48" class="range multirange__range">
-                            <input type="range" min="0" max="48" class="range multirange__range">
+                            <div class="dual-slider multirange__dual-slider">
+                                <input type="range" min="0" max="48" value="10" class="range multirange__range range_from">
+                                <input type="range" min="0" max="48" value="35" class="range multirange__range range_to">
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="reset-link">
+                    <button class="button reset-link__button button_reset">Reset Filters</button>
+                    <button class="button reset-link__button button_link">Copy Link</button>
                 </div>
             </div>
             <div class="products">
                 <div class="sort-search products__sort-search">
-                    <div class="sort">
-                        <select name="sort" id="sort" class="select sort__select">
-                            <option value="sort-title" disabled selected class="sort__select_name">
-                                Sort options:
-                            </option>
-                            <option value="price-ASC" class="sort__select_option">Sort by price
-                                ACS
-                            </option>
-                            <option value="price-DESC" class="sort__select_option">Sort by price
-                                DECS
-                            </option>
-                            <option value="rating-ASC" class="sort__select_option">Sort by rating
-                                ACS
-                            </option>
-                            <option value="rating-DESC" class="sort__select_option">Sort by rating
-                                DECS
-                            </option>
+                    <div class="wrapper wrapper_sort">
+                        <select name="sort" id="sort" class="sort">
+                            <option value="sort-title" disabled selected class="sort__select_name">Sort options:</option>
+                            <option value="price-ASC" class="sort__select_option">Sort by price ACS</option>
+                            <option value="price-DESC" class="sort__select_option">Sort by price DECS</option>
+                            <option value="rating-ASC" class="sort__select_option">Sort by rating ACS</option>
+                            <option value="rating-DESC" class="sort__select_option">Sort by rating DECS</option>
                         </select>
                     </div>
                     <div class="stat">
                         Found: 32
                     </div>
-                    <div class="search">
-                        <input type="search" name="search" id="search" placeholder="Search product">
+                    <div class="wrapper wrapper_search">
+                        <input type="search" name="search" id="search" placeholder="Search product" class="search">
+                        <span class="search-icon"></span>
                     </div>
-                    <div class="view-mode">
-                        <div class="view-mode__small"></div>
-                        <div class="view-mode__big"></div>
+                    <div class="wrapper wrapper_view-mode">
+                        <img src="lemons.jpg" alt="Small cards" title="Small icons" class="view-mode view-mode_small selected">
+                        <img src="lemons.jpg" alt="Big cards" title="Big icons" class="view-mode view-mode_big">
                     </div>
                 </div>
                 <div class="items products__items">
@@ -133,7 +125,12 @@
 </main>
 <footer>
     <div class="wrapper footer__wrapper">
-        Online Store 2022 v2
+        <div class="links footer__links">
+            <a href="https://github.com/Tati-Zhurr"><img src="github_logo.png" alt="Github link" class="img-github"></a>
+            <a href="https://github.com/sensaur"><img src="github_logo.png" alt="Github link" class="img-github"></a>
+            2022
+            <a href="https://rs.school/js/"><img src="rs_school_js.svg" alt="rssscool link" class="img-rssschool"></a>
+          </div>
     </div>
 </footer>
 </body>

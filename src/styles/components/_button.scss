@@ -3,9 +3,10 @@
     padding: 2%;
     font-size: 2rem;
     border-style: none;
-    background-color: $color-additional;
     font-weight: 300;
     cursor: pointer;
+    border-radius: 0%;
+    background-color: $color-additional;
     &:hover{
         background-color: $brand-color2;
         color: $color-text-dark;

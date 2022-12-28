@@ -1,29 +1,17 @@
 import './styles/main.scss';
-import Multirange from './components/app/getMultirange';
+import getDualSliderWorking from './components/app/getDualSliderWorking';
 
-import slider from './components/app/card';
+let multirangeBlockPrice = document.querySelector(".multirange_price");
+let multirangeBlockStock = document.querySelector(".multirange_stock");
 
-const multirangeBlockPrice = document.querySelector('.multirange_price');
-if (multirangeBlockPrice instanceof HTMLElement) {
-    const multirangePrice = new Multirange(multirangeBlockPrice);
-    multirangePrice.getMultirangeData();
-    const slidersArr = multirangeBlockPrice.querySelectorAll('.range');
-    const sliderOne = slidersArr[0];
-    const sliderTwo = slidersArr[1];
-    if (sliderOne instanceof HTMLElement && sliderTwo instanceof HTMLElement) {
-        sliderOne.onchange = function () {
-            multirangePrice.getMultirangeData();
-        };
-        sliderTwo.onchange = function () {
-            multirangePrice.getMultirangeData();
-        };
-    }
+if (multirangeBlockPrice instanceof HTMLElement){
+    getDualSliderWorking(multirangeBlockPrice);
 }
 
-/*window.onload = function(){
-    getMultirangeData();
-}*/
+if (multirangeBlockStock instanceof HTMLElement){
+    getDualSliderWorking(multirangeBlockStock);
+}
 
-window.onload = function () {
-    slider();
-};
+
+
+
