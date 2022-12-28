@@ -1,17 +1,18 @@
 import './styles/main.scss';
 import getDualSliderWorking from './components/app/getDualSliderWorking';
+import slider from './components/app/card';
 
-let multirangeBlockPrice = document.querySelector(".multirange_price");
-let multirangeBlockStock = document.querySelector(".multirange_stock");
+const multirangeBlockPrice = document.querySelector('.multirange_price');
+const multirangeBlockStock = document.querySelector('.multirange_stock');
 
-if (multirangeBlockPrice instanceof HTMLElement){
+if (multirangeBlockPrice instanceof HTMLElement) {
     getDualSliderWorking(multirangeBlockPrice);
 }
 
-if (multirangeBlockStock instanceof HTMLElement){
+if (multirangeBlockStock instanceof HTMLElement) {
     getDualSliderWorking(multirangeBlockStock);
 }
 
-
-
-
+window.onload = () => {
+    slider();
+};
