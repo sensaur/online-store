@@ -5,9 +5,14 @@
     padding: 1%;
     width: 25%;
     color: $color-additional;
+
+    @media screen and (max-width: 1000px) {
+       width: 70%;
+    }
+
     .reset-link{
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         padding: 1%;
        
     }
@@ -31,6 +36,10 @@
                 font-size: 2rem;
                 .wrapper_checkbox{
                 }
+
+                @media screen and (max-width: 1000px) {
+                    margin: 0 auto;
+                }
                 
             }
         }
@@ -42,4 +51,11 @@
 
 .filter_stock{
     margin-bottom: 3em;
+}
+
+.data-filter {
+    font-size: 2rem;
+    @media screen and (max-width: 1000px) {
+    font-size: 2rem;
+    }
 }
