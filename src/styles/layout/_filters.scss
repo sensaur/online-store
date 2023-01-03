@@ -1,4 +1,7 @@
 .filters{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     padding: 1%;
     width: 25%;
     color: $color-additional;
