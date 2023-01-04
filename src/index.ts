@@ -10,11 +10,11 @@ const multirangeBlockPrice = document.querySelector('.multirange_price');
 const multirangeBlockStock = document.querySelector('.multirange_stock');
 
 if (multirangeBlockPrice instanceof HTMLElement) {
-    getDualSliderWorking(multirangeBlockPrice);
+    getDualSliderWorking(multirangeBlockPrice, true);
 }
 
 if (multirangeBlockStock instanceof HTMLElement) {
-    getDualSliderWorking(multirangeBlockStock);
+    getDualSliderWorking(multirangeBlockStock, false);
 }
 
 /*window.onload = () => {

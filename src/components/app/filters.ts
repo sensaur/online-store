@@ -3,7 +3,7 @@ import FilterCheckboxList from './FilterCheckboxList';
 
 const  FiltersList = () => {
 
-    const arrayDataCategory = Array.from(new Set(productData.map((e) => e.category)));
+    const arrayDataCategory = productData.map((e) => e.category);
     const filterCategoryBlock = document.querySelector('.filter__list_category');
 
     if (filterCategoryBlock instanceof HTMLElement) {
@@ -11,7 +11,7 @@ const  FiltersList = () => {
         filterCategory.drawFilterList();
     }
 
-    const arrayDataBrand = Array.from(new Set(productData.map((e) => e.brand)));;
+    const arrayDataBrand = productData.map((e) => e.brand);
     const filterBrandBlock = document.querySelector('.filter__list_brand');
     
     if (filterBrandBlock instanceof HTMLElement) {
