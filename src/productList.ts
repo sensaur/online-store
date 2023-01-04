@@ -23,7 +23,7 @@ const productData = [
         stock: 36,
         brand: 'Valor',
         category: 'sweets',
-        thumbnail: 'valor-chocolate.jpg',
+        thumbnail: 'valor-chocolate-70.jpg',
         images: ['valor-chocolate-70.jpg', 'valor-chocolate70-2.jpg'],
     },
 
