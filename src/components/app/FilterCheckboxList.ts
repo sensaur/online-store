@@ -1,3 +1,4 @@
+import addQueryParamsToUrl from "./addQueryParams";
 class FilterCheckboxList {
     block: HTMLElement;
     arrayDataList: string[];
@@ -22,7 +23,21 @@ class FilterCheckboxList {
             checkboxInput.classList.add('checkbox-line__checkbox');
             checkboxInput.setAttribute('type', 'checkbox');
             checkboxInput.setAttribute('id', `${e}`);
-           // checkboxInput.addEventListener('change', getFiltered)
+
+            checkboxInput.addEventListener('change', (event) => {
+            const checkbox = event.target;
+            if (checkbox instanceof HTMLInputElement){
+                if (checkbox.checked){
+                    const filterItemName = checkbox.getAttribute('id');
+                    const filterBlockName = this.block.getAttribute('id');
+                    if ((filterBlockName)&&(filterItemName)) {
+                    addQueryParamsToUrl(filterItemName, filterBlockName);
+                }
+                }
+            }
+           
+            })
+
             checkboxWrapper.appendChild(checkboxInput);
             const checkboxLabel = document.createElement('label');
             checkboxLabel.classList.add('checkbox-line__label');
