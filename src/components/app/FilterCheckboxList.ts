@@ -27,12 +27,18 @@ class FilterCheckboxList {
             checkboxInput.addEventListener('change', (event) => {
             const checkbox = event.target;
             if (checkbox instanceof HTMLInputElement){
+                const filterItemName = checkbox.getAttribute('id');
+                const filterBlockName = this.block.getAttribute('id');
                 if (checkbox.checked){
-                    const filterItemName = checkbox.getAttribute('id');
-                    const filterBlockName = this.block.getAttribute('id');
                     if ((filterBlockName)&&(filterItemName)) {
                     addQueryParamsToUrl(filterItemName, filterBlockName);
                 }
+                } else {
+                    if ((filterBlockName)&&(filterItemName)) {
+                        //removeQueryParamsToUrl(filterItemName, filterBlockName);
+                    }
+
+
                 }
             }
            

@@ -7,6 +7,7 @@ import productData from './productList';
 
 filtersList();
 
+//dual-slider
 const multirangeBlockPrice = document.querySelector('.multirange_price');
 const multirangeBlockStock = document.querySelector('.multirange_stock');
 
@@ -18,9 +19,16 @@ if (multirangeBlockStock instanceof HTMLElement) {
     getDualSliderWorking(multirangeBlockStock, false);
 }
 
-
+const bigSizeItemsPics = true;
 const productItem = document.querySelector('.p_wrapper');
-export const queryParams: {[key: string]:string} = {};
+
+export const currentUrl = new URL(window.location.href);
+export const queryParams: {[key: string]:string[]} = {};
+
+
+
+
+
 
 
 /*window.onload = () => {
