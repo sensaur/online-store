@@ -22,13 +22,7 @@ const bigSizeItemsPics = true;
 const productItem = document.querySelector('.p_wrapper');
 
 export const currentUrl = new URL(window.location.href);
-export const queryParams: {[key: string]:string[]} = {};
-
-
-
-
-
-export const queryParams: { [key: string]: string } = {};
+export const queryParams: { [key: string]: string[] } = {};
 
 window.onload = () => {
     // slider();
