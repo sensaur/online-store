@@ -1,8 +1,14 @@
-.multirange__data{
+.multirange__data {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 1rem;
+    
+   .multirange__data_from,
+   .multirange__data_arrows,
+   .multirange__data_to {
+     font-size: 2rem;
+   }
 }
 .dual-slider{
     position: relative;

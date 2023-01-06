@@ -1,12 +1,17 @@
 .button{
     color: $color-white;
-    padding: 2%;
+    padding: 0 2%;
     font-size: 2rem;
     border-style: none;
     font-weight: 300;
     cursor: pointer;
     border-radius: 0%;
     background-color: $color-additional;
+
+    @media screen and (max-width: 1000px) {
+        background-color: $brand-color2;
+    }
+
     &:hover{
         background-color: $brand-color2;
         color: $color-text-dark;
@@ -16,8 +21,26 @@
 
 .button_reset{
     color: $color-buttons;
+
+    @media screen and (max-width: 1000px) {
+        color: $color-text-dark;
+
+        &:hover{
+            color: $color-buttons;   
+        }
+
+     }
 }
 
 .button_link{
     color: $color-button-hover;
+
+    @media screen and (max-width: 1000px) {
+       color: $color-text-dark;
+
+       &:hover{
+        color: $color-button-hover;
+    }
+
+    }
 }

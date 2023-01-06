@@ -1,8 +1,8 @@
 
 import Multirange from './Multirange';
 
-function getDualSliderWorking (block: HTMLElement){
-    const multirangeForBlock = new Multirange(block);
+function getDualSliderWorking (block: HTMLElement, isPrice: boolean){
+    const multirangeForBlock = new Multirange(block, isPrice);
     multirangeForBlock.getMultirangeData();
     let slidersArr = block.querySelectorAll(".range");
     let sliderOne = slidersArr[0];
