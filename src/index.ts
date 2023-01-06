@@ -3,6 +3,7 @@ import getDualSliderWorking from './components/app/getDualSliderWorking';
 import filtersList from './components/app/filters';
 import slider from './components/app/card';
 import productData from './productList';
+import resetFilters from './components/app/resetFilters';
 
 
 filtersList();
@@ -20,10 +21,13 @@ if (multirangeBlockStock instanceof HTMLElement) {
 }
 
 const bigSizeItemsPics = true;
-const productItem = document.querySelector('.p_wrapper');
 
-export const currentUrl = new URL(window.location.href);
-export const queryParams: {[key: string]:string[]} = {};
+const buttonResetfilters = document.querySelector('.reset-link__button');
+buttonResetfilters?.addEventListener('click', resetFilters);
+
+
+
+
 
 
 
