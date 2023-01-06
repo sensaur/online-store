@@ -1,4 +1,6 @@
 import addQueryParamsToUrl from "./addQueryParams";
+import removeQueryParamsFromUrl from "./removeQueryParamsFromURL";
+
 class FilterCheckboxList {
     block: HTMLElement;
     arrayDataList: string[];
@@ -35,7 +37,7 @@ class FilterCheckboxList {
                 }
                 } else {
                     if ((filterBlockName)&&(filterItemName)) {
-                        //removeQueryParamsToUrl(filterItemName, filterBlockName);
+                       removeQueryParamsFromUrl(filterItemName, filterBlockName);
                     }
 
 

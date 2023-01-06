@@ -4,6 +4,7 @@ import filtersList from './components/app/filters';
 import slider from './components/app/card';
 import productData from './productList';
 import resetFilters from './components/app/resetFilters';
+import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
 
 
 filtersList();
@@ -18,6 +19,11 @@ if (multirangeBlockPrice instanceof HTMLElement) {
 
 if (multirangeBlockStock instanceof HTMLElement) {
     getDualSliderWorking(multirangeBlockStock, false);
+}
+
+
+if (window.location.href !== window.location.pathname){
+    drawPageWithSearchParam();
 }
 
 const bigSizeItemsPics = true;

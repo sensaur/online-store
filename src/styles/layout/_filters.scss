@@ -66,3 +66,17 @@
     font-size: 2rem;
     }
 }
+
+.checkbox-line__checkbox{
+    width: 2rem;
+    height: 2rem;
+    cursor: grab;
+    &:checked{
+        background-color: $color-button-hover;
+    }
+}
+
+.checked{
+    background-color: $color-button-hover;
+    font-weight: 700;
+}

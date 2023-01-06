@@ -1,4 +1,5 @@
 import productData from "../../productList";
+import drawPageWithSearchParam from "./drawPageWithSearchParam";
 
 
 
@@ -13,8 +14,10 @@ function addQueryParamsToUrl (valueParam : string, keyParam: string) {
         const arFromCurrentQueryParams = currentQueryParamsString.map((e) =>{return e.split('=')});
         objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: {[key: string]:string[]},  e)=>{ obj[e[0]] = e[1].split('↕'); return obj}, {});
         
-        if (searchKey){
-            objectFromCurrenQueryParams[searchKey].push(searchValue);
+        if (objectFromCurrenQueryParams[searchKey]){
+            if (!objectFromCurrenQueryParams[searchKey].includes(searchValue)){
+                objectFromCurrenQueryParams[searchKey].push(searchValue);
+            } 
         } else {
             objectFromCurrenQueryParams[searchKey] =[searchValue];
         }
@@ -28,7 +31,8 @@ function addQueryParamsToUrl (valueParam : string, keyParam: string) {
 
     //const newParams = new URLSearchParams(Object.entries(queryParams));
    // const newUrl = new URL(`${currentUrl.origin}${currentUrl.pathname}?${stringWithNewQueryParams}`);
-    window.location.search = `?${stringWithNewQueryParams}`;
+   window.location.search = `?${stringWithNewQueryParams}`;
+   drawPageWithSearchParam();
 }
 
 export default addQueryParamsToUrl;
