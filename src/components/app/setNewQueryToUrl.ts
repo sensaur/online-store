@@ -1,4 +1,5 @@
 
+// @ts-ignore
 function encodeQuery(data){
     let query = data.url
     for (let d in data.params)
@@ -6,4 +7,3 @@ function encodeQuery(data){
               + encodeURIComponent(data.params[d]) + '&';
     return query.slice(0, -1)
 }
-  
