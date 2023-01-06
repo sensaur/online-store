@@ -1,6 +1,7 @@
 .products__items {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .p_wrapper {
@@ -39,7 +40,7 @@
 .p_product-text h1 {
   margin: 0px 9px 14px;
   padding-top: 10px;
-  font-size: 17px;
+  font-size: 15px;
   color: #474747;
 }
 
@@ -50,7 +51,7 @@
 
 .p_product-text h2 {
   margin: 0 0 10px 10px;
-  font-size: 13px;
+  font-size: 11px;
   font-family: 'Raleway', sans-serif;
   font-weight: 200;
   text-transform: uppercase;
@@ -116,6 +117,86 @@ span {
   outline: none;
 }
 
-.p_product-price-btn button:hover {
+.p_sm_product-price-btn button:hover {
   background-color: #fddf19;
+}
+
+
+.p_sm_wrapper {
+  height: 220px;
+  width: 160px;
+  margin: 6px 5px;
+  border-radius: 7px 7px 7px 7px;
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.p_sm_product-img {
+  float: left;
+  height: 90px;
+  width: 160px;
+}
+
+.p_sm_product-img img {
+  border-radius: 7px 7px 7px 7px;
+}
+
+.p_sm_product-text {
+  height: 100px;
+  width: 160px;
+}
+
+.p_sm_product-text h1 {
+  margin: 0px 9px 1px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 17px;
+  color: #474747;
+}
+
+.p_sm_product-text h1,
+.p_sm_product-price-btn p {
+  font-family: 'Bentham', serif;
+  font-size: 16px;
+}
+
+.p_sm_product-price-btn {
+  height: 55px;
+  width: 150px;
+  margin-top: -141px;
+  margin-left: 5px;
+  position: relative;
+}
+
+.p_sm_product-price-btn p {
+  display: inline-block;
+  position: absolute;
+  top: -13px;
+  height: 50px;
+  font-family: 'Trocchi', serif;
+  margin: 0 0 0 19px;
+  font-size: 14px;
+  font-weight: lighter;
+  color: #474747;
+}
+
+.p_sm_product-price-btn button {
+  float: right;
+  display: inline-block;
+  height: 25px;
+  width: 70px;
+  margin: 10px 5px 4px 0px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 7px;
+  font-weight: 250;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: #d6360f;
+  cursor: pointer;
+  outline: none;
 }

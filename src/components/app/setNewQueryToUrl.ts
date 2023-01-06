@@ -6,4 +6,3 @@
               + encodeURIComponent(data.params[d]) + '&';
     return query.slice(0, -1)
 }*/
-  

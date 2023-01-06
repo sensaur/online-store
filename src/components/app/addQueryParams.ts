@@ -27,7 +27,7 @@ function addQueryParamsToUrl (valueParam : string, keyParam: string) {
 
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
     const stringWithNewQueryParams = arrWithNewQueryParams.reduce((res, e) => res + `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`, '').slice(0, -1);
-    
+
 
     //const newParams = new URLSearchParams(Object.entries(queryParams));
    // const newUrl = new URL(`${currentUrl.origin}${currentUrl.pathname}?${stringWithNewQueryParams}`);
