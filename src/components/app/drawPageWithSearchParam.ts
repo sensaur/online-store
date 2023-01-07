@@ -9,9 +9,11 @@ function drawPageWithSearchParam() {
         return e.split('=');
     });
     objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[] }, e) => {
-        obj[e[0]] = e[1].split('↕');
+        obj[e[0]] = e[1]?.split('↕');
         return obj;
     }, {});
+    objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
+    // console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
     if (productData) {

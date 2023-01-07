@@ -36,20 +36,23 @@ window.onload = () => {
     // slider();
     try {
         const url_string = window.location.href.toLowerCase();
-        console.log(url_string);
+        console.log('url_string==>', url_string);
         const url = new URL(url_string);
         const currentQueryParamsString = decodeURIComponent(url.search).slice(1).split('&');
+        // console.log('currentQueryParamsString==>', currentQueryParamsString);
         const arFromCurrentQueryParams = <[string, string[]]>currentQueryParamsString.map((e) => {
             return e.split('=');
         });
+        // console.log('arFromCurrentQueryParams=>>', arFromCurrentQueryParams);
         const objectFromCurrenQueryParams: { [key: string]: string[] } = arFromCurrentQueryParams.reduce(
             (obj: { [key: string]: string[] }, e) => {
-                obj[e[0]] = e[1].split('↕');
+                obj[e[0]] = e[1]?.split('↕');
                 return obj;
             },
             {}
         );
-        console.log(objectFromCurrenQueryParams);
+        objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = ['true']);
+        // console.log('objectFromCurrenQueryParams==>', objectFromCurrenQueryParams);
 
         const filterByBrand = () => {
             if (!objectFromCurrenQueryParams.brand) {
@@ -63,7 +66,7 @@ window.onload = () => {
             }
         };
         const filteredByBrand = filterByBrand();
-        console.log('filteredByBrand', filteredByBrand);
+        // console.log('filteredByBrand', filteredByBrand);
 
         const filterByCategory = () => {
             if (!objectFromCurrenQueryParams.category) {
