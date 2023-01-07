@@ -13,7 +13,7 @@ function drawPageWithSearchParam() {
         return obj;
     }, {});
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
-    // console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
+    console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
     if (productData) {
@@ -32,7 +32,7 @@ function drawPageWithSearchParam() {
             } else {
                 return productData.filter((el) => {
                     if (objectFromCurrenQueryParams.brand) {
-                        if (objectFromCurrenQueryParams.brand.includes(el.brand)) {
+                        if (objectFromCurrenQueryParams.brand.includes(encodeURI(el.brand))) {
                             return el;
                         }
                     }
