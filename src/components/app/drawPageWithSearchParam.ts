@@ -1,5 +1,6 @@
 import ISearchParam from './ISearchParam';
 import productData from '../../productList';
+import productList from '../../productList';
 
 function drawPageWithSearchParam() {
     const currentUrl = new URL(window.location.href);
@@ -55,8 +56,24 @@ function drawPageWithSearchParam() {
                 });
             }
         };
+
         // getting result
         const filteredItemsTotal = filterByCategory();
+
+        // filtering
+        console.log('filteredItemsTotal=>', filteredItemsTotal);
+
+        const sortByPriceASCResult = sortByPriceASC(filteredItemsTotal);
+        console.log('sortByPriceASCResult==>', sortByPriceASCResult);
+
+        const sortByPriceDESCResult = sortByPriceDESC(filteredItemsTotal);
+        console.log('sortByPriceDESCResult==>', sortByPriceDESCResult);
+
+        const sortByRatingASC = [...filteredItemsTotal].sort((a, b) => a.rating - b.rating);
+        console.log('sortByRatingASC==>', sortByRatingASC);
+
+        const sortByRatingDESC = [...filteredItemsTotal].sort((a, b) => b.rating - a.rating);
+        console.log('sortByRatingDESC==>', sortByRatingDESC);
 
         // rendering filtered
         if (objectFromCurrenQueryParams?.big[0] === 'true') {
@@ -154,11 +171,24 @@ function getCheckboxChecked(blockCheckboxName: string[] | undefined) {
         blockCheckboxName.forEach((e) => {
             const checkbox = document.getElementById(e);
             // console.log('checkbox=>', checkbox);
+            // console.log('blockCheckboxName=>', blockCheckboxName);
             if (checkbox instanceof HTMLInputElement) {
                 checkbox.checked = true;
             }
         });
     }
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function sortByPriceASC(arr) {
+    return [...arr].sort((a: IproductItem, b: IproductItem) => a.price - b.price);
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function sortByPriceDESC(arr) {
+    return [...arr].sort((a: IproductItem, b: IproductItem) => b.price - a.price);
 }
 
 export default drawPageWithSearchParam;
