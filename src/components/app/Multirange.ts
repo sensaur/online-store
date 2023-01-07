@@ -25,12 +25,12 @@ class Multirange {
             if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
                 sliderOne.value = `${parseInt(sliderTwo.value) - minGap}`;
             }
-            if (this.isPrice){
+            if (this.isPrice) {
                 displayValOne.textContent = `€${sliderOne.value}`;
             } else {
                 displayValOne.textContent = `${sliderOne.value}`;
             }
-            
+
             fillColor(sliderOne, sliderTwo, sliderTrack);
             if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= minGap) {
                 sliderTwo.value = `${parseInt(sliderOne.value) + minGap}`;
@@ -40,7 +40,7 @@ class Multirange {
             } else {
                 displayValTwo.textContent = `${sliderTwo.value}`;
             }
-            
+
             fillColor(sliderOne, sliderTwo, sliderTrack);
         }
     }

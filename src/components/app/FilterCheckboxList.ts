@@ -1,22 +1,25 @@
-import addQueryParamsToUrl from "./addQueryParams";
-import removeQueryParamsFromUrl from "./removeQueryParamsFromURL";
+import addQueryParamsToUrl from './addQueryParams';
+import removeQueryParamsFromUrl from './removeQueryParamsFromURL';
 
 class FilterCheckboxList {
     block: HTMLElement;
     arrayDataList: string[];
     arrayUniqueDataList: string[];
 
-
     constructor(block: HTMLElement, arrayDataList: string[]) {
         this.block = block;
         this.arrayDataList = arrayDataList;
-        this.arrayUniqueDataList = Array.from(new Set(arrayDataList)); 
+        this.arrayUniqueDataList = Array.from(new Set(arrayDataList));
     }
 
     drawFilterList() {
-
         this.arrayUniqueDataList.forEach((e) => {
-            const amount = this.arrayDataList.reduce((sum, el)=> {if (el === e) {sum++;} return sum;}, 0);
+            const amount = this.arrayDataList.reduce((sum, el) => {
+                if (el === e) {
+                    sum++;
+                }
+                return sum;
+            }, 0);
             const checkboxLine = document.createElement('div');
             checkboxLine.classList.add('checkbox-line');
             const checkboxWrapper = document.createElement('div');
@@ -27,24 +30,21 @@ class FilterCheckboxList {
             checkboxInput.setAttribute('id', `${e}`);
 
             checkboxInput.addEventListener('change', (event) => {
-            const checkbox = event.target;
-            if (checkbox instanceof HTMLInputElement){
-                const filterItemName = checkbox.getAttribute('id');
-                const filterBlockName = this.block.getAttribute('id');
-                if (checkbox.checked){
-                    if ((filterBlockName)&&(filterItemName)) {
-                    addQueryParamsToUrl(filterItemName, filterBlockName);
-                }
-                } else {
-                    if ((filterBlockName)&&(filterItemName)) {
-                       removeQueryParamsFromUrl(filterItemName, filterBlockName);
+                const checkbox = event.target;
+                if (checkbox instanceof HTMLInputElement) {
+                    const filterItemName = checkbox.getAttribute('id');
+                    const filterBlockName = this.block.getAttribute('id');
+                    if (checkbox.checked) {
+                        if (filterBlockName && filterItemName) {
+                            addQueryParamsToUrl(filterItemName, filterBlockName);
+                        }
+                    } else {
+                        if (filterBlockName && filterItemName) {
+                            removeQueryParamsFromUrl(filterItemName, filterBlockName);
+                        }
                     }
-
-
                 }
-            }
-           
-            })
+            });
 
             checkboxWrapper.appendChild(checkboxInput);
             const checkboxLabel = document.createElement('label');
@@ -59,8 +59,6 @@ class FilterCheckboxList {
             this.block.append(checkboxLine);
         });
     }
-
-
 }
 
 export default FilterCheckboxList;

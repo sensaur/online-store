@@ -20,21 +20,17 @@ if (multirangeBlockStock instanceof HTMLElement) {
     getDualSliderWorking(multirangeBlockStock, false);
 }
 
-
-if (window.location.href !== window.location.pathname){
+if (window.location.href !== window.location.pathname) {
     drawPageWithSearchParam();
 }
 
 const buttonResetfilters = document.querySelector('.reset-link__button');
 buttonResetfilters?.addEventListener('click', resetFilters);
 
-
-
-
 const bigSizeItemsPics = true;
 
 export const currentUrl = new URL(window.location.href);
-export const queryParams: {[key: string]:string[]} = {};
+export const queryParams: { [key: string]: string[] } = {};
 
 window.onload = () => {
     // slider();
@@ -82,7 +78,7 @@ window.onload = () => {
         };
         const filteredByCategory = filterByCategory();
 
-        if (objectFromCurrenQueryParams.big[0] === 'true') {
+        if (objectFromCurrenQueryParams?.big[0] === 'true') {
             filteredByCategory.forEach((el) => {
                 const itemEl = document.createElement('div');
                 itemEl.classList.add('p_wrapper');
@@ -130,7 +126,6 @@ window.onload = () => {
                 }
             });
         } else {
-
             filteredByCategory.forEach((el) => {
                 const itemEl = document.createElement('div');
                 itemEl.classList.add('p_sm_wrapper');
