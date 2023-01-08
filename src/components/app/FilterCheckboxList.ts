@@ -5,11 +5,13 @@ class FilterCheckboxList {
     block: HTMLElement;
     arrayDataList: string[];
     arrayUniqueDataList: string[];
+    arrayFilteredItems: string[];
 
-    constructor(block: HTMLElement, arrayDataList: string[]) {
+    constructor(block: HTMLElement, arrayDataList: string[], arrayFilteredItems: string[] = arrayDataList) {
         this.block = block;
         this.arrayDataList = arrayDataList;
         this.arrayUniqueDataList = Array.from(new Set(arrayDataList));
+        this.arrayFilteredItems = arrayFilteredItems;
     }
 
     drawFilterList() {
@@ -53,7 +55,7 @@ class FilterCheckboxList {
             checkboxWrapper.appendChild(checkboxLabel);
             const dataFilter = document.createElement('span');
             dataFilter.classList.add('data-filter');
-            dataFilter.textContent = `(${amount})`;
+            dataFilter.textContent = `(${amount}/${amount})`;
             checkboxLine.appendChild(checkboxWrapper);
             checkboxLine.appendChild(dataFilter);
             this.block.append(checkboxLine);

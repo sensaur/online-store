@@ -2,6 +2,7 @@ import productData from '../../productList';
 import ISearchParam from './ISearchParam';
 import { IproductItem } from './IproductItem';
 
+
 function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam){
     if (productData) {
         productData.filter((e) => {
@@ -147,6 +148,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam){
                 }
             });
         }
+        return filteredItemsTotal;
         
     } catch (err) {
         console.log("Issues with Parsing URL Parameter's - " + err);

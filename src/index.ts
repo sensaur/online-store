@@ -1,9 +1,10 @@
 import './styles/main.scss';
 import getDualSliderWorking from './components/app/getDualSliderWorking';
 import filtersList from './components/app/filters';
-import productData from './productList';
 import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
+
+
 
 filtersList();
 

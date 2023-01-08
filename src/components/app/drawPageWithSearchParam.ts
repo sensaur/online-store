@@ -1,6 +1,7 @@
 import ISearchParam from './ISearchParam';
 import productData from '../../productList';
 import getItemsFiltered from './getItemsFiltered';
+import getCheckboxChecked from './getCheckboxChecked';
 
 
 function drawPageWithSearchParam() {
@@ -18,20 +19,11 @@ function drawPageWithSearchParam() {
     console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
-    getItemsFiltered(objectFromCurrenQueryParams);
+    const filteredItemsTotal =  getItemsFiltered (objectFromCurrenQueryParams); 
     
 }
 
-function getCheckboxChecked(blockCheckboxName: string[] | undefined) {
-    if (blockCheckboxName) {
-        blockCheckboxName.forEach((e) => {
-            const checkbox = document.getElementById(e);
-            if (checkbox instanceof HTMLInputElement) {
-                checkbox.checked = true;
-            }
-        });
-    }
-}
+
 
 
 
