@@ -1,4 +1,3 @@
-
 /*function encodeQuery(data){
     let query = data.url
     for (let d in data.params)
