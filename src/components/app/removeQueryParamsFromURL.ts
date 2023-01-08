@@ -16,8 +16,8 @@ function removeQueryParamsFromUrl(valueParam: string, keyParam: string) {
     }, {});
     objectFromCurrenQueryParams[searchKey] = objectFromCurrenQueryParams[searchKey].filter((e) => e !== searchValue);
     console.log(objectFromCurrenQueryParams[searchKey]);
-    if (!objectFromCurrenQueryParams[searchKey]){
-      resetFilters();
+    if (!objectFromCurrenQueryParams[searchKey].join('')){
+        return  resetFilters();
     }
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
     const stringWithNewQueryParams = arrWithNewQueryParams
