@@ -4,6 +4,7 @@ import getItemsFiltered from './getItemsFiltered';
 import getCheckboxChecked from './getCheckboxChecked';
 import { IproductItem } from './IproductItem';
 import filtersList from './filters';
+import changePriceRangeFilteredItems from './changePriceRangeFilteredItems';
 
 
 function drawPageWithSearchParam() {
@@ -23,6 +24,7 @@ function drawPageWithSearchParam() {
     filtersList(filteredItemsTotal);
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
+    changePriceRangeFilteredItems(filteredItemsTotal);
    
 }
 
