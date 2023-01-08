@@ -1,4 +1,4 @@
-interface IproductItem {
+export interface IproductItem {
     id: number;
     title: string;
     description: string;
@@ -8,6 +8,6 @@ interface IproductItem {
     stock: number;
     brand: string;
     category: string;
-    thumbnail: 'oil3.jpg';
+    thumbnail: string;
     images: string[];
 }
