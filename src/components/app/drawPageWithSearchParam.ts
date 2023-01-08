@@ -2,6 +2,8 @@ import ISearchParam from './ISearchParam';
 import productData from '../../productList';
 import getItemsFiltered from './getItemsFiltered';
 import getCheckboxChecked from './getCheckboxChecked';
+import { IproductItem } from './IproductItem';
+import filtersList from './filters';
 
 
 function drawPageWithSearchParam() {
@@ -20,21 +22,17 @@ function drawPageWithSearchParam() {
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
     const filteredItemsTotal =  getItemsFiltered (objectFromCurrenQueryParams); 
-    
+    filtersList(filteredItemsTotal);
+   
 }
 
 
 
 
 
-function getNumberFound (blockCheckboxName: string[] | undefined){
-    if (blockCheckboxName) {
-        let counter = 0;
-        productData.filter((e) => {if (blockCheckboxName.includes(e.category)){
-            return e
-        }});
-        return counter;
-    }
+function getNumberFoundItems (filteredItemsTotal: IproductItem[]){
+    const arrayCategoryFound: string[] = filteredItemsTotal.map((e) => e.category);
+    const arrayBrandFound: string[] = filteredItemsTotal.map((e) => e.category);
 }
 
 export default drawPageWithSearchParam;

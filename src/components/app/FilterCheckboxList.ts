@@ -1,4 +1,5 @@
 import addQueryParamsToUrl from './addQueryParams';
+import { IproductItem } from './IproductItem';
 import removeQueryParamsFromUrl from './removeQueryParamsFromURL';
 
 class FilterCheckboxList {
@@ -17,6 +18,12 @@ class FilterCheckboxList {
     drawFilterList() {
         this.arrayUniqueDataList.forEach((e) => {
             const amount = this.arrayDataList.reduce((sum, el) => {
+                if (el === e) {
+                    sum++;
+                }
+                return sum;
+            }, 0);
+            const numberFilteredItems = this.arrayFilteredItems.reduce((sum, el) => {
                 if (el === e) {
                     sum++;
                 }
@@ -55,7 +62,7 @@ class FilterCheckboxList {
             checkboxWrapper.appendChild(checkboxLabel);
             const dataFilter = document.createElement('span');
             dataFilter.classList.add('data-filter');
-            dataFilter.textContent = `(${amount}/${amount})`;
+            dataFilter.textContent = `(${numberFilteredItems}/${amount})`;
             checkboxLine.appendChild(checkboxWrapper);
             checkboxLine.appendChild(dataFilter);
             this.block.append(checkboxLine);

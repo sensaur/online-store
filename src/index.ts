@@ -5,8 +5,12 @@ import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
 
 
+if (window.location.href !== window.location.pathname) {
+    drawPageWithSearchParam();
+} else {
+    filtersList();
+}
 
-filtersList();
 
 //dual-slider
 const multirangeBlockPrice = document.querySelector('.multirange_price');
