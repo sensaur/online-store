@@ -9,7 +9,8 @@ function drawPageWithSearchParam (){
     objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: {[key: string]:string[]},  e)=>{ obj[e[0]] = e[1].split('↕'); return obj}, {});
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
-    productData.filter((e) => {objectFromCurrenQueryParams.category.includes(e.category)})
+    console.log(getNumberFound(objectFromCurrenQueryParams.category));
+    
 
 
     
@@ -25,6 +26,16 @@ function getCheckboxChecked(blockCheckboxName: string[] | undefined){
         } )
     }
   
+}
+
+function getNumberFound (blockCheckboxName: string[] | undefined){
+    if (blockCheckboxName) {
+        let counter = 0;
+        productData.filter((e) => {if (blockCheckboxName.includes(e.category)){
+            return e
+        }});
+        return counter;
+    }
 }
 
 export default drawPageWithSearchParam;

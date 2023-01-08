@@ -1,7 +1,6 @@
 import './styles/main.scss';
 import getDualSliderWorking from './components/app/getDualSliderWorking';
 import filtersList from './components/app/filters';
-// import slider from './components/app/card';
 import productData from './productList';
 import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
@@ -36,7 +35,7 @@ const bigSizeItemsPics = true;
 export const currentUrl = new URL(window.location.href);
 export const queryParams: {[key: string]:string[]} = {};
 
-window.onload = () => {
+/*window.onload = () => {
     // slider();
     try {
         const url_string = window.location.href.toLowerCase();
@@ -171,4 +170,4 @@ window.onload = () => {
     } catch (err) {
         console.log("Issues with Parsing URL Parameter's - " + err);
     }
-};
+};*/
