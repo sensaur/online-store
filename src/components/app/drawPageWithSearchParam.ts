@@ -5,7 +5,6 @@ import getCheckboxChecked from './getCheckboxChecked';
 import { IproductItem } from './IproductItem';
 import filtersList from './filters';
 
-
 function drawPageWithSearchParam() {
     const currentUrl = new URL(window.location.href);
     let objectFromCurrenQueryParams: ISearchParam = {};
@@ -19,18 +18,13 @@ function drawPageWithSearchParam() {
     }, {});
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
     console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
-    const filteredItemsTotal =  getItemsFiltered (objectFromCurrenQueryParams); 
+    const filteredItemsTotal = getItemsFiltered(objectFromCurrenQueryParams);
     filtersList(filteredItemsTotal);
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
-   
 }
 
-
-
-
-
-function getNumberFoundItems (filteredItemsTotal: IproductItem[]){
+function getNumberFoundItems(filteredItemsTotal: IproductItem[]) {
     const arrayCategoryFound: string[] = filteredItemsTotal.map((e) => e.category);
     const arrayBrandFound: string[] = filteredItemsTotal.map((e) => e.category);
 }

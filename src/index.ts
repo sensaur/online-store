@@ -4,7 +4,6 @@ import filtersList from './components/app/filters';
 import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
 
-
 drawPageWithSearchParam();
 
 //dual-slider
@@ -27,6 +26,3 @@ const buttonResetfilters = document.querySelector('.reset-link__button');
 buttonResetfilters?.addEventListener('click', resetFilters);
 
 // const bigSizeItemsPics = true;
-
-
-

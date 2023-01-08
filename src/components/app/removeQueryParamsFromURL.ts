@@ -17,10 +17,12 @@ function removeQueryParamsFromUrl(valueParam: string, keyParam: string) {
     objectFromCurrenQueryParams[searchKey] = objectFromCurrenQueryParams[searchKey].filter((e) => e !== searchValue);
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
     const stringWithNewQueryParams = arrWithNewQueryParams
-        .reduce((res, e) => {if (e[1].length !== 0) {
-                              res = res + `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`;  
-                              }
-                            return res} , '')
+        .reduce((res, e) => {
+            if (e[1].length !== 0) {
+                res = res + `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`;
+            }
+            return res;
+        }, '')
         .slice(0, -1);
     //const newParams = new URLSearchParams(Object.entries(queryParams));
     // const newUrl = new URL(`${currentUrl.origin}${currentUrl.pathname}?${stringWithNewQueryParams}`);

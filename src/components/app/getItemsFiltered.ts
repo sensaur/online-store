@@ -2,8 +2,7 @@ import productData from '../../productList';
 import ISearchParam from './ISearchParam';
 import { IproductItem } from './IproductItem';
 
-
-function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam){
+function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
     if (productData) {
         productData.filter((e) => {
             if (objectFromCurrenQueryParams.category) {
@@ -63,7 +62,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam){
         console.log('sortByRatingDESC==>', sortByRatingDESC);
 
         // rendering filtered
-        if ((objectFromCurrenQueryParams.big)&&(objectFromCurrenQueryParams?.big[0] === 'true')) {
+        if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
             filteredItemsTotal.forEach((el) => {
                 const itemEl = document.createElement('div');
                 itemEl.classList.add('p_wrapper');
@@ -149,18 +148,14 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam){
             });
         }
         return filteredItemsTotal;
-        
     } catch (err) {
         console.log("Issues with Parsing URL Parameter's - " + err);
     }
-
 }
-
 
 function sortByPriceASC(arr: IproductItem[]) {
     return [...arr].sort((a: IproductItem, b: IproductItem) => a.price - b.price);
 }
-
 
 function sortByPriceDESC(arr: IproductItem[]) {
     return [...arr].sort((a: IproductItem, b: IproductItem) => b.price - a.price);
