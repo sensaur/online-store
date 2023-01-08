@@ -35,7 +35,6 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     //const newParams = new URLSearchParams(Object.entries(queryParams));
     // const newUrl = new URL(`${currentUrl.origin}${currentUrl.pathname}?${stringWithNewQueryParams}`);
     window.location.search = `?${stringWithNewQueryParams}`;
-    drawPageWithSearchParam();
 }
 
 export default addQueryParamsToUrl;

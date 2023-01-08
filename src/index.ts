@@ -5,12 +5,7 @@ import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
 
 
-if (window.location.href !== window.location.pathname) {
-    drawPageWithSearchParam();
-} else {
-    filtersList();
-}
-
+drawPageWithSearchParam();
 
 //dual-slider
 const multirangeBlockPrice = document.querySelector('.multirange_price');
@@ -24,16 +19,14 @@ if (multirangeBlockStock instanceof HTMLElement) {
     getDualSliderWorking(multirangeBlockStock, false);
 }
 
-if (window.location.href !== window.location.pathname) {
+/*if (window.location.href !== window.location.pathname) {
     drawPageWithSearchParam();
-}
+}*/
 
 const buttonResetfilters = document.querySelector('.reset-link__button');
 buttonResetfilters?.addEventListener('click', resetFilters);
 
 // const bigSizeItemsPics = true;
 
-export const currentUrl = new URL(window.location.href);
-export const queryParams: { [key: string]: string[] } = {};
 
 
