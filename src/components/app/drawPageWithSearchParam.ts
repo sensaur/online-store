@@ -18,12 +18,11 @@ function drawPageWithSearchParam() {
     getCheckboxChecked(objectFromCurrenQueryParams.category);
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
     if (productData) {
-        console.log(getNumberFound(
+        productData.filter((e) => {
             if (objectFromCurrenQueryParams.category) {
-                objectFromCurrenQueryParams.category);
+                objectFromCurrenQueryParams.category.includes(e.category);
             }
-        );
-    ;
+        });
     }
 
     try {
@@ -171,8 +170,6 @@ function getCheckboxChecked(blockCheckboxName: string[] | undefined) {
     if (blockCheckboxName) {
         blockCheckboxName.forEach((e) => {
             const checkbox = document.getElementById(e);
-            // console.log('checkbox=>', checkbox);
-            // console.log('blockCheckboxName=>', blockCheckboxName);
             if (checkbox instanceof HTMLInputElement) {
                 checkbox.checked = true;
             }

@@ -1,4 +1,5 @@
 import drawPageWithSearchParam from './drawPageWithSearchParam';
+import resetFilters from './resetFilters';
 
 function removeQueryParamsFromUrl(valueParam: string, keyParam: string) {
     const currentUrl = new URL(window.location.href);
@@ -14,6 +15,10 @@ function removeQueryParamsFromUrl(valueParam: string, keyParam: string) {
         return obj;
     }, {});
     objectFromCurrenQueryParams[searchKey] = objectFromCurrenQueryParams[searchKey].filter((e) => e !== searchValue);
+    console.log(objectFromCurrenQueryParams[searchKey]);
+    if (!objectFromCurrenQueryParams[searchKey]){
+      resetFilters();
+    }
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
     const stringWithNewQueryParams = arrWithNewQueryParams
         .reduce((res, e) => res + `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`, '')
