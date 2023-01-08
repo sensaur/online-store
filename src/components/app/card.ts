@@ -1,4 +1,5 @@
 const slider = function () {
+    console.log(window.location.href)
     //// SLIDER
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const slider = document.getElementsByClassName('sliderBlock_items');
@@ -29,16 +30,22 @@ const slider = function () {
         items.children[currentSlide].className =
             'sliderBlock_positionControls__paginatorItem sliderBlock_positionControls__active';
     }
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    next.onclick = function () {
-        nextSlide();
-    };
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    previous.onclick = function () {
-        previousSlide();
-    };
+
+    if (next) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        next.onclick = function () {
+            nextSlide();
+        };
+    }
+
+    if (previous) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        previous.onclick = function () {
+            previousSlide();
+        };
+    }
 
     function goToSlideAfterPushTheMiniBlock() {
         for (let i = 0; i < currentSlideItem.length; i++) {

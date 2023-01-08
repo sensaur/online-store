@@ -6,6 +6,7 @@ interface ISearchParam {
     sort?: string[];
     search?: string;
     big?: string;
+    productDetails?: string[];
 }
 
 export default ISearchParam;

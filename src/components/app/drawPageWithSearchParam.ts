@@ -17,7 +17,7 @@ function drawPageWithSearchParam() {
         return obj;
     }, {});
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
-    console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
+    // console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
     const filteredItemsTotal = getItemsFiltered(objectFromCurrenQueryParams);
     filtersList(filteredItemsTotal);
     getCheckboxChecked(objectFromCurrenQueryParams.category);

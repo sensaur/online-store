@@ -1,6 +1,7 @@
 import productData from '../../productList';
 import ISearchParam from './ISearchParam';
 import { IproductItem } from './IproductItem';
+import addQueryParamsToUrl from './addQueryParams';
 
 function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
     if (productData) {
@@ -27,7 +28,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
             }
         };
         const filteredByBrand = filterByBrand();
-        console.log('filteredByBrand', filteredByBrand);
+        // console.log('filteredByBrand', filteredByBrand);
 
         const filterByCategory = () => {
             if (!objectFromCurrenQueryParams.category) {
@@ -47,22 +48,25 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
         const filteredItemsTotal = filterByCategory();
 
         // filtering
-        console.log('filteredItemsTotal=>', filteredItemsTotal);
+        // console.log('filteredItemsTotal=>', filteredItemsTotal);
 
         const sortByPriceASCResult = sortByPriceASC(filteredItemsTotal);
-        console.log('sortByPriceASCResult==>', sortByPriceASCResult);
+        // console.log('sortByPriceASCResult==>', sortByPriceASCResult);
 
         const sortByPriceDESCResult = [...filteredItemsTotal].sort((a, b) => b.price - a.price);
-        console.log('sortByPriceDESCResult==>', sortByPriceDESCResult);
+        // console.log('sortByPriceDESCResult==>', sortByPriceDESCResult);
 
         const sortByRatingASC = [...filteredItemsTotal].sort((a, b) => a.rating - b.rating);
-        console.log('sortByRatingASC==>', sortByRatingASC);
+        // console.log('sortByRatingASC==>', sortByRatingASC);
 
         const sortByRatingDESC = [...filteredItemsTotal].sort((a, b) => b.rating - a.rating);
-        console.log('sortByRatingDESC==>', sortByRatingDESC);
+        // console.log('sortByRatingDESC==>', sortByRatingDESC);
 
-        // rendering filtered
-        if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
+        // rendering filtered or card
+        // console.log('111', objectFromCurrenQueryParams);
+        if (objectFromCurrenQueryParams.productDetails) {
+            console.log('render card');
+        } else if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
             filteredItemsTotal.forEach((el) => {
                 const itemEl = document.createElement('div');
                 itemEl.classList.add('p_wrapper');
@@ -99,6 +103,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
                     buttonsDiv.classList.add('p_product-price-btn');
                     const details = document.createElement('button');
                     details.innerText = 'Details';
+                    details.addEventListener('click', () => {});
                     const addToCard = document.createElement('button');
                     addToCard.innerText = 'Add to cart';
                     buttonsDiv.appendChild(details);
@@ -136,9 +141,18 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
                     buttonsDiv.classList.add('p_sm_product-price-btn');
                     const details = document.createElement('button');
                     details.innerText = 'Details';
+                    const link = document.createElement('a');
+                    // link.href = `productDetails/${el.id}`;
+                    link.href = `card.html`;
+                    link.appendChild(details);
+                    // details.addEventListener('click', (e) => {
+                    //     e.preventDefault();
+                    //     const currentUrl = new URL(window.location.href);
+                    //     window.location.search = `productDetails=${el.id}`;
+                    // });
                     const addToCard = document.createElement('button');
                     addToCard.innerText = 'Add to cart';
-                    buttonsDiv.appendChild(details);
+                    buttonsDiv.appendChild(link);
                     buttonsDiv.appendChild(addToCard);
                     productInfo.appendChild(buttonsDiv);
                     const stat = document.getElementsByClassName('stat')[0];
