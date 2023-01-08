@@ -1,9 +1,9 @@
 import './styles/main.scss';
 import getDualSliderWorking from './components/app/getDualSliderWorking';
-import filtersList from './components/app/filters';
+// import filtersList from './components/app/filters';
 import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
-import slider from "./components/app/card";
+import slider from './components/app/card';
 
 drawPageWithSearchParam();
 
