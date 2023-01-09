@@ -1,4 +1,4 @@
-import productData from '../../productList';
+// import productData from '../../productList';
 import ISearchParam from './ISearchParam';
 
 function addQueryParamsToUrl(valueParam: string, keyParam: string) {
@@ -15,6 +15,8 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
 
     if (searchKey === 'stock' || searchKey === 'price') {
         searchValue = valueParam;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         objectFromCurrenQueryParams[searchKey] = [searchValue];
     } else {
         if (searchKey === 'category' || searchKey === 'brand') {
