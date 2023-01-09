@@ -1,40 +1,64 @@
 import productData from '../../productList';
-import drawPageWithSearchParam from './drawPageWithSearchParam';
+import ISearchParam from './ISearchParam';
 
 function addQueryParamsToUrl(valueParam: string, keyParam: string) {
-    const currentUrl = new URL(window.location.href);
-    let objectFromCurrenQueryParams: { [key: string]: string[] } = {};
-    const searchKey = encodeURIComponent(keyParam);
-    const searchValue = encodeURIComponent(valueParam);
-    if (currentUrl.search) {
-        const currentQueryParamsString = decodeURIComponent(currentUrl.search).slice(1).split('&');
-        const arFromCurrentQueryParams = currentQueryParamsString.map((e) => {
-            return e.split('=');
-        });
-        objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[] }, e) => {
-            obj[e[0]] = e[1].split('↕');
-            return obj;
-        }, {});
+    let objectFromCurrenQueryParams: ISearchParam = {};
+    const currentUrl = window.location.href;
+    const pathUrl = window.location.pathname;
 
-        if (objectFromCurrenQueryParams[searchKey]) {
-            if (!objectFromCurrenQueryParams[searchKey].includes(searchValue)) {
-                objectFromCurrenQueryParams[searchKey].push(searchValue);
-            }
-        } else {
-            objectFromCurrenQueryParams[searchKey] = [searchValue];
-        }
-    } else {
-        objectFromCurrenQueryParams[searchKey] = [searchValue];
+    if (currentUrl !== pathUrl) {
+        objectFromCurrenQueryParams = getCurrentParamsFromUrl();
     }
 
-    const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
-    const stringWithNewQueryParams = arrWithNewQueryParams
-        .reduce((res, e) => res + `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`, '')
-        .slice(0, -1);
+    const searchKey: string = encodeURIComponent(keyParam);
+    let searchValue: string;
 
-    //const newParams = new URLSearchParams(Object.entries(queryParams));
-    // const newUrl = new URL(`${currentUrl.origin}${currentUrl.pathname}?${stringWithNewQueryParams}`);
-    window.location.search = `?${stringWithNewQueryParams}`;
+    if (searchKey === 'stock' || searchKey === 'price') {
+        searchValue = valueParam;
+        objectFromCurrenQueryParams[searchKey] = [searchValue];
+    } else {
+        if (searchKey === 'category' || searchKey === 'brand') {
+            searchValue = encodeURIComponent(valueParam);
+            const arrPreviousValue = objectFromCurrenQueryParams[searchKey];
+            if (arrPreviousValue) {
+                arrPreviousValue.push(searchValue);
+            } else {
+                objectFromCurrenQueryParams[searchKey] = [searchValue];
+            }
+        }
+    }
+
+    // window.history.pushState(objectFromCurrenQueryParams, '', currentUrl);
+    window.location.search = `?${getNewUrlWithAllParams(objectFromCurrenQueryParams)}`;
+}
+
+function getCurrentParamsFromUrl() {
+    const currentUrl = new URL(window.location.href);
+    let objectFromCurrenQueryParams: ISearchParam = {};
+    const currentQueryParamsString = decodeURIComponent(currentUrl.search).slice(1).split('&');
+    const arFromCurrentQueryParams = currentQueryParamsString.map((e) => {
+        return e.split('=');
+    });
+    objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[] }, e) => {
+        obj[e[0]] = e[1]?.split('↕');
+        return obj;
+    }, {});
+
+    return objectFromCurrenQueryParams;
+}
+
+function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
+    const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
+    console.log(objectFromCurrenQueryParams);
+    const stringWithNewQueryParams = arrWithNewQueryParams
+        .reduce((res, e) => {
+            if (e[0]) {
+                res += `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`;
+            }
+            return res;
+        }, '')
+        .slice(0, -1);
+    return stringWithNewQueryParams;
 }
 
 export default addQueryParamsToUrl;
