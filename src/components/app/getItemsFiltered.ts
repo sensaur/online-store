@@ -44,8 +44,21 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
             }
         };
 
+        const filteredByCategory = filterByCategory();
+
+        const filterByPrice = () => {
+            if (!objectFromCurrenQueryParams.price) {
+                return filteredByCategory;
+            } else {
+                const min = parseInt(objectFromCurrenQueryParams.price[0]);
+                const max = parseInt(objectFromCurrenQueryParams.price[1]);
+                console.log(filteredByCategory);
+                return filteredByCategory.filter((el) => el.price >= min && el.price <= max);
+            }
+        };
+
         // getting result
-        const filteredItemsTotal = filterByCategory();
+        const filteredItemsTotal = filterByPrice();
 
         // filtering
         // console.log('filteredItemsTotal=>', filteredItemsTotal);
