@@ -1,8 +1,8 @@
 interface ISearchParam {
     category?: string[];
     brand?: string[];
-    price?: number[];
-    stock?: number[];
+    price?: string[];
+    stock?: string[];
     sort?: string[];
     search?: string;
     big?: string;
