@@ -39,17 +39,15 @@ class Multirange {
             }
             if (this.isPrice) {
                 displayValTwo.textContent = `€${sliderTwo.value}`;
-              
             } else {
                 displayValTwo.textContent = `${sliderTwo.value}`;
             }
 
             fillColor(sliderOne, sliderTwo, sliderTrack);
 
-            if (onChange){
+            if (onChange) {
                 getPriceStockParamsToUrl(sliderOne.value, sliderTwo.value, this.isPrice);
-           }
-           
+            }
         }
     }
 }

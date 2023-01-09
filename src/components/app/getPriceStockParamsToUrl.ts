@@ -1,13 +1,13 @@
-import addQueryParamsToUrl from "./addQueryParams";
+import addQueryParamsToUrl from './addQueryParams';
 
-function getPriceStockParamsToUrl (minValue: string, maxValue: string, isPrice: boolean){
+function getPriceStockParamsToUrl(minValue: string, maxValue: string, isPrice: boolean) {
     const min = parseInt(minValue);
     const max = parseInt(maxValue);
-    let keyParam:string;
-    if (isPrice){
-       keyParam = 'price';
+    let keyParam: string;
+    if (isPrice) {
+        keyParam = 'price';
     } else {
-       keyParam = 'stock';
+        keyParam = 'stock';
     }
     const valueParam = `${minValue}↕${maxValue}`;
     console.log(valueParam);
