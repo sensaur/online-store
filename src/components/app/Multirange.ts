@@ -1,4 +1,4 @@
-import getPriceStockParamsToUrl from "./getPriceStockParamsToUrl";
+import getPriceStockParamsToUrl from './getPriceStockParamsToUrl';
 
 class Multirange {
     block: HTMLElement;
