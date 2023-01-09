@@ -1,5 +1,6 @@
 import { IproductItem } from "./IproductItem";
 import productData from "../../productList";
+import getDualSliderWorking from "./getDualSliderWorking";
 
 function changePriceRangeFilteredItems(filteredItemsTotal: IproductItem[] = productData){
     const arrayFilteredItemsPrice = filteredItemsTotal?.map((e) => e.price);

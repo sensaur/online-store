@@ -44,23 +44,37 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam){
             }
         };
 
+        const filteredByCategory = filterByCategory();
+
+        const filterByPrice = () => {
+            if (!objectFromCurrenQueryParams.price) {
+               return filteredByCategory;
+            } else {
+                const min = parseInt(objectFromCurrenQueryParams.price[0]);
+                const max = parseInt(objectFromCurrenQueryParams.price[1]);
+                console.log(filteredByCategory);
+                return filteredByCategory.filter((el) => ((el.price >= min) && (el.price <= max)));;
+            };
+        }
+
         // getting result
-        const filteredItemsTotal = filterByCategory();
+        const filteredItemsTotal = filterByPrice();
+        console.log('filteredByPrice', filteredItemsTotal);
 
         // filtering
-        console.log('filteredItemsTotal=>', filteredItemsTotal);
+        
 
         const sortByPriceASCResult = sortByPriceASC(filteredItemsTotal);
-        console.log('sortByPriceASCResult==>', sortByPriceASCResult);
+       
 
         const sortByPriceDESCResult = [...filteredItemsTotal].sort((a, b) => b.price - a.price);
-        console.log('sortByPriceDESCResult==>', sortByPriceDESCResult);
+       
 
         const sortByRatingASC = [...filteredItemsTotal].sort((a, b) => a.rating - b.rating);
-        console.log('sortByRatingASC==>', sortByRatingASC);
+        
 
         const sortByRatingDESC = [...filteredItemsTotal].sort((a, b) => b.rating - a.rating);
-        console.log('sortByRatingDESC==>', sortByRatingDESC);
+       
 
         // rendering filtered
         if ((objectFromCurrenQueryParams.big)&&(objectFromCurrenQueryParams?.big[0] === 'true')) {

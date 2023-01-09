@@ -6,6 +6,7 @@ import { IproductItem } from './IproductItem';
 import filtersList from './filters';
 import changePriceRangeFilteredItems from './changePriceRangeFilteredItems';
 import changeStockRangeFilteredItems from './changeStockRangeFilteredItems';
+import getFilteredByPrice from './getFilteredByPrice';
 
 
 function drawPageWithSearchParam() {
@@ -19,6 +20,7 @@ function drawPageWithSearchParam() {
         obj[e[0]] = e[1]?.split('↕');
         return obj;
     }, {});
+    console.log(objectFromCurrenQueryParams);
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
     const filteredItemsTotal =  getItemsFiltered (objectFromCurrenQueryParams); 
     filtersList(filteredItemsTotal);
@@ -26,7 +28,7 @@ function drawPageWithSearchParam() {
     getCheckboxChecked(objectFromCurrenQueryParams.brand);
     changePriceRangeFilteredItems(filteredItemsTotal);
     changeStockRangeFilteredItems(filteredItemsTotal);
-   
+    
 }
 
 

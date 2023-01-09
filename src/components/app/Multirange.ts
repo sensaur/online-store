@@ -1,3 +1,5 @@
+import getPriceStockParamsToUrl from "./getPriceStockParamsToUrl";
+
 class Multirange {
     block: HTMLElement;
     isPrice: boolean;
@@ -7,7 +9,7 @@ class Multirange {
         this.isPrice = isPrice;
     }
 
-    getMultirangeData() {
+    getMultirangeData(onChange: boolean) {
         const slidersArr = this.block.querySelectorAll('.range');
         const sliderOne = slidersArr[0];
         const sliderTwo = slidersArr[1];
@@ -37,11 +39,17 @@ class Multirange {
             }
             if (this.isPrice) {
                 displayValTwo.textContent = `€${sliderTwo.value}`;
+              
             } else {
                 displayValTwo.textContent = `${sliderTwo.value}`;
             }
 
             fillColor(sliderOne, sliderTwo, sliderTrack);
+
+            if (onChange){
+                getPriceStockParamsToUrl(sliderOne.value, sliderTwo.value, this.isPrice);
+           }
+           
         }
     }
 }
