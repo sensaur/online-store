@@ -28,6 +28,6 @@ buttonResetfilters?.addEventListener('click', resetFilters);
 
 // const bigSizeItemsPics = true;
 
-window.onload = () => {
+/*window.onload = () => {
     slider();
-};
+};*/

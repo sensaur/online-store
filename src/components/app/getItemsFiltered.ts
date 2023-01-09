@@ -52,13 +52,25 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
             } else {
                 const min = parseInt(objectFromCurrenQueryParams.price[0]);
                 const max = parseInt(objectFromCurrenQueryParams.price[1]);
-                console.log(filteredByCategory);
                 return filteredByCategory.filter((el) => el.price >= min && el.price <= max);
             }
         };
 
+        const filteredByPrice = filterByPrice();
+
+        const filterByStock = () => {
+            if (!objectFromCurrenQueryParams.stock) {
+                return filteredByPrice;
+            } else {
+                const min = parseInt(objectFromCurrenQueryParams.stock[0]);
+                const max = parseInt(objectFromCurrenQueryParams.stock[1]);
+                return filteredByPrice.filter((el) => el.price >= min && el.price <= max);
+            }
+        };
+
+
         // getting result
-        const filteredItemsTotal = filterByPrice();
+        const filteredItemsTotal = filterByStock();
 
         // filtering
         // console.log('filteredItemsTotal=>', filteredItemsTotal);
@@ -77,9 +89,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
 
         // rendering filtered or card
         // console.log('111', objectFromCurrenQueryParams);
-        if (objectFromCurrenQueryParams.productDetails) {
-            console.log('render card');
-        } else if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
+         if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
             filteredItemsTotal.forEach((el) => {
                 const itemEl = document.createElement('div');
                 itemEl.classList.add('p_wrapper');
