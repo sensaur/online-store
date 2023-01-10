@@ -7,7 +7,6 @@ function changePriceRangeFilteredItems(filteredItemsTotal: IproductItem[] = prod
     const inputMaxValue = document.querySelector('.range_price_to');
     if ((inputMaxValue instanceof HTMLInputElement)&&(inputMinValue instanceof HTMLInputElement)){
         if (filteredItemsTotal.length !== 0){
-            console.log(filteredItemsTotal);
             const arrayFilteredItemsPrice = filteredItemsTotal.map((e) => e.price);
             const arrayPricesASC = arrayFilteredItemsPrice.sort((a, b) => a-b);
             const minPrice = arrayPricesASC[0];

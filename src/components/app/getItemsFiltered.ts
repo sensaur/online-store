@@ -65,7 +65,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
             } else {
                 const min = parseInt(objectFromCurrenQueryParams.stock[0]);
                 const max = parseInt(objectFromCurrenQueryParams.stock[1]);
-                return filteredByPrice.filter((el) => el.price >= min && el.price <= max);
+                return filteredByPrice.filter((el) => el.stock >= min && el.stock <= max);
             }
         };
         
@@ -75,20 +75,8 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
         // filtering
         // console.log('filteredItemsTotal=>', filteredItemsTotal);
 
-        const sortByPriceASCResult = sortByPriceASC(filteredItemsTotal);
-        // console.log('sortByPriceASCResult==>', sortByPriceASCResult);
-
-        const sortByPriceDESCResult = [...filteredItemsTotal].sort((a, b) => b.price - a.price);
-        // console.log('sortByPriceDESCResult==>', sortByPriceDESCResult);
-
-        const sortByRatingASC = [...filteredItemsTotal].sort((a, b) => a.rating - b.rating);
-        // console.log('sortByRatingASC==>', sortByRatingASC);
-
-        const sortByRatingDESC = [...filteredItemsTotal].sort((a, b) => b.rating - a.rating);
-        // console.log('sortByRatingDESC==>', sortByRatingDESC);
-
-        // rendering filtered or card
-        // console.log('111', objectFromCurrenQueryParams);
+      
+       
         let isBig: boolean;
          if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big === 'true') {
             isBig = true;
@@ -103,13 +91,5 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
 }
 
 
-
-function sortByPriceASC(arr: IproductItem[]) {
-    return [...arr].sort((a: IproductItem, b: IproductItem) => a.price - b.price);
-}
-
-function sortByPriceDESC(arr: IproductItem[]) {
-    return [...arr].sort((a: IproductItem, b: IproductItem) => b.price - a.price);
-}
 
 export default getItemsFiltered;

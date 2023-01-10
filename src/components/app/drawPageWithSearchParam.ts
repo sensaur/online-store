@@ -8,19 +8,12 @@ import changePriceRangeFilteredItems from './changePriceRangeFilteredItems';
 import changeStockRangeFilteredItems from './changeStockRangeFilteredItems';
 import getItemsSorted from './getItemsSorted';
 import drawProductItems from './drawProductItems';
+import getCurrentParamsFromUrl from './getCurrentParamsFromURL';
+
 
 
 function drawPageWithSearchParam() {
-    const currentUrl = new URL(window.location.href);
-    let objectFromCurrenQueryParams: ISearchParam = {};
-    const currentQueryParamsString = decodeURIComponent(currentUrl.search).slice(1).split('&');
-    const arFromCurrentQueryParams = currentQueryParamsString.map((e) => {
-        return e.split('=');
-    });
-    objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[] }, e) => {
-        obj[e[0]] = e[1]?.split('↕');
-        return obj;
-    }, {});
+    const objectFromCurrenQueryParams = getCurrentParamsFromUrl();
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
     const filteredItemsTotal = getItemsFiltered(objectFromCurrenQueryParams);
     filtersList(filteredItemsTotal);
@@ -44,15 +37,16 @@ function drawPageWithSearchParam() {
     }
 
     if (sortedItems){
-        drawProductItems(sortedItems, true);
+        if (objectFromCurrenQueryParams.big = 'true'){
+            drawProductItems(sortedItems, true);
+        } else {
+            drawProductItems(sortedItems, false);
+        }
+        
     }
     
 
 }
 
-function getNumberFoundItems(filteredItemsTotal: IproductItem[]) {
-    const arrayCategoryFound: string[] = filteredItemsTotal.map((e) => e.category);
-    const arrayBrandFound: string[] = filteredItemsTotal.map((e) => e.category);
-}
 
 export default drawPageWithSearchParam;

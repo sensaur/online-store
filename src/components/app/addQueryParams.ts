@@ -14,15 +14,15 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     const searchKey: string = encodeURIComponent(keyParam);
     let searchValue: string;
 
-    if ((searchKey === 'stock') || (searchKey === 'price')) {
-        searchValue = valueParam;
-       objectFromCurrenQueryParams[searchKey] = [searchValue];
-    } else {
-        if (searchKey === 'sort'){
+    switch(searchKey){
+        case('stock'):
+        case('price'):
+        case ('sort'):
             searchValue = valueParam;
             objectFromCurrenQueryParams[searchKey] = [searchValue];
-        };
-        if ((searchKey === 'category') || (searchKey === 'brand')) {
+            break;
+        case ('brand'):
+        case ('category'):
             searchValue = encodeURIComponent(valueParam);
             const arrayPrevious = objectFromCurrenQueryParams[searchKey];
             if (arrayPrevious) {
@@ -31,30 +31,17 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
             } else {
                 objectFromCurrenQueryParams[searchKey] = [searchValue];
             }
-        };
-        
-        
-
+            break;
+        case ('big'):
+            searchValue = valueParam;
+            objectFromCurrenQueryParams[searchKey] = searchValue;
+            break;
     }
-   
-    // window.history.pushState(objectFromCurrenQueryParams, '', currentUrl);
+         
     window.location.search = `?${getNewUrlWithAllParams(objectFromCurrenQueryParams)}`;
 }
 
-/*function getCurrentParamsFromUrl() {
-    const currentUrl = new URL(window.location.href);
-    let objectFromCurrenQueryParams: ISearchParam = {};
-    const currentQueryParamsString = decodeURIComponent(currentUrl.search).slice(1).split('&');
-    const arFromCurrentQueryParams = currentQueryParamsString.map((e) => {
-        return e.split('=');
-    });
-    objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[] }, e) => {
-        obj[e[0]] = e[1]?.split('↕');
-        return obj;
-    }, {});
 
-    return objectFromCurrenQueryParams;
-}*/
 
 function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);

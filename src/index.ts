@@ -31,15 +31,32 @@ buttonResetfilters?.addEventListener('click', resetFilters);
 
 const select = document.querySelector('.sort');
 if (select instanceof HTMLSelectElement){
-    console.log('y');
     select.addEventListener('change', ()=>{
-        console.log('f');
         const valueParam = select.value;
-        console.log(valueParam);
         const keyParam = 'sort';
         addQueryParamsToUrl(valueParam, keyParam);
     })
 }
+
+const viewMode = document.querySelector('.wrapper_view-mode');
+const vieModeSmall = document.querySelector('.view-mode_small');
+const vieModeBig = document.querySelector('.view-mode_big');
+
+if (viewMode){
+    viewMode.addEventListener(('click'), (ev) =>{
+        if (ev.target instanceof HTMLElement){
+           if (ev.target.classList.contains('.view-mode_small')) {
+            vieModeBig?.classList.add('selected');
+            const keyParam = 'big';
+            const valueParam = 'false';
+            addQueryParamsToUrl(valueParam, keyParam);
+            }
+        }
+    })
+
+}
+
+
 
 // const bigSizeItemsPics = true;
 
