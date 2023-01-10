@@ -78,7 +78,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
       
        
         let isBig: boolean;
-         if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big === 'true') {
+         if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
             isBig = true;
         } else {
             isBig = false;

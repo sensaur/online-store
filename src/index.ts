@@ -5,6 +5,7 @@ import resetFilters from './components/app/resetFilters';
 import drawPageWithSearchParam from './components/app/drawPageWithSearchParam';
 import slider from './components/app/card';
 import addQueryParamsToUrl from './components/app/addQueryParams';
+import removeQueryParamsFromUrl from './components/app/removeQueryParamsFromURL';
 
 
 drawPageWithSearchParam();
@@ -39,17 +40,19 @@ if (select instanceof HTMLSelectElement){
 }
 
 const viewMode = document.querySelector('.wrapper_view-mode');
-const vieModeSmall = document.querySelector('.view-mode_small');
-const vieModeBig = document.querySelector('.view-mode_big');
+
 
 if (viewMode){
     viewMode.addEventListener(('click'), (ev) =>{
+        console.log(ev.target);
+        const keyParam = 'big';
+        const valueParam = 'false';
         if (ev.target instanceof HTMLElement){
-           if (ev.target.classList.contains('.view-mode_small')) {
-            vieModeBig?.classList.add('selected');
-            const keyParam = 'big';
-            const valueParam = 'false';
+           if (ev.target.classList.contains('view-mode_small')) {
+            console.log('yes');
             addQueryParamsToUrl(valueParam, keyParam);
+            } else {
+                removeQueryParamsFromUrl(valueParam, keyParam);
             }
         }
     })
