@@ -59,6 +59,34 @@ if (viewMode){
 
 }
 
+let copyLinkBtn = document.querySelector('.button_link');
+
+if (copyLinkBtn instanceof HTMLElement) {
+	copyLinkBtn.addEventListener('click', () => {
+		let tempInput = document.createElement('textarea');
+
+		tempInput.style.fontSize = '12pt';
+		tempInput.style.border = '0';
+		tempInput.style.padding = '0';
+		tempInput.style.margin = '0';
+		tempInput.style.position = 'absolute';
+		tempInput.style.left = '-9999px';
+		tempInput.setAttribute('readonly', '');
+
+		tempInput.value = window.location.href;
+
+        if ((copyLinkBtn instanceof HTMLElement) && (copyLinkBtn.parentNode instanceof HTMLElement)){
+            copyLinkBtn.parentNode.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            tempInput.parentNode?.removeChild(tempInput);
+            copyLinkBtn.textContent = 'Link was Copied';
+        }
+       
+	});
+}
+
 
 
 // const bigSizeItemsPics = true;
