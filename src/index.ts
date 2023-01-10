@@ -7,9 +7,7 @@ import slider from './components/app/card';
 import addQueryParamsToUrl from './components/app/addQueryParams';
 import removeQueryParamsFromUrl from './components/app/removeQueryParamsFromURL';
 
-
 drawPageWithSearchParam();
-
 
 //dual-slider
 const multirangeBlockPrice = document.querySelector('.multirange_price');
@@ -31,35 +29,58 @@ const buttonResetfilters = document.querySelector('.reset-link__button');
 buttonResetfilters?.addEventListener('click', resetFilters);
 
 const select = document.querySelector('.sort');
-if (select instanceof HTMLSelectElement){
-    select.addEventListener('change', ()=>{
+if (select instanceof HTMLSelectElement) {
+    select.addEventListener('change', () => {
         const valueParam = select.value;
         const keyParam = 'sort';
         addQueryParamsToUrl(valueParam, keyParam);
-    })
+    });
 }
 
 const viewMode = document.querySelector('.wrapper_view-mode');
 
-
-if (viewMode){
-    viewMode.addEventListener(('click'), (ev) =>{
+if (viewMode) {
+    viewMode.addEventListener('click', (ev) => {
         console.log(ev.target);
         const keyParam = 'big';
         const valueParam = 'false';
-        if (ev.target instanceof HTMLElement){
-           if (ev.target.classList.contains('view-mode_small')) {
-            console.log('yes');
-            addQueryParamsToUrl(valueParam, keyParam);
+        if (ev.target instanceof HTMLElement) {
+            if (ev.target.classList.contains('view-mode_small')) {
+                console.log('yes');
+                addQueryParamsToUrl(valueParam, keyParam);
             } else {
                 removeQueryParamsFromUrl(valueParam, keyParam);
             }
         }
-    })
-
+    });
 }
 
+const copyLinkBtn = document.querySelector('.button_link');
 
+if (copyLinkBtn instanceof HTMLElement) {
+    copyLinkBtn.addEventListener('click', () => {
+        const tempInput = document.createElement('textarea');
+
+        tempInput.style.fontSize = '12pt';
+        tempInput.style.border = '0';
+        tempInput.style.padding = '0';
+        tempInput.style.margin = '0';
+        tempInput.style.position = 'absolute';
+        tempInput.style.left = '-9999px';
+        tempInput.setAttribute('readonly', '');
+
+        tempInput.value = window.location.href;
+
+        if (copyLinkBtn instanceof HTMLElement && copyLinkBtn.parentNode instanceof HTMLElement) {
+            copyLinkBtn.parentNode.appendChild(tempInput);
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+            tempInput.parentNode?.removeChild(tempInput);
+            copyLinkBtn.textContent = 'Link was Copied';
+        }
+    });
+}
 
 // const bigSizeItemsPics = true;
 
