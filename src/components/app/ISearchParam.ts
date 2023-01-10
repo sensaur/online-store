@@ -3,7 +3,7 @@ interface ISearchParam {
     brand?: string[];
     price?: string[];
     stock?: string[];
-    sort?: string;
+    sort?: string[];
     search?: string;
     big?: string;
 }

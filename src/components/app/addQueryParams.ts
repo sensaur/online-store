@@ -1,5 +1,6 @@
 // import productData from '../../productList';
 import ISearchParam from './ISearchParam';
+import getCurrentParamsFromUrl from './getCurrentParamsFromURL';
 
 function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     let objectFromCurrenQueryParams: ISearchParam = {};
@@ -19,7 +20,7 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     } else {
         if (searchKey === 'sort'){
             searchValue = valueParam;
-            objectFromCurrenQueryParams[searchKey] = searchValue;
+            objectFromCurrenQueryParams[searchKey] = [searchValue];
         };
         if ((searchKey === 'category') || (searchKey === 'brand')) {
             searchValue = encodeURIComponent(valueParam);
@@ -40,7 +41,7 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     window.location.search = `?${getNewUrlWithAllParams(objectFromCurrenQueryParams)}`;
 }
 
-function getCurrentParamsFromUrl() {
+/*function getCurrentParamsFromUrl() {
     const currentUrl = new URL(window.location.href);
     let objectFromCurrenQueryParams: ISearchParam = {};
     const currentQueryParamsString = decodeURIComponent(currentUrl.search).slice(1).split('&');
@@ -53,7 +54,7 @@ function getCurrentParamsFromUrl() {
     }, {});
 
     return objectFromCurrenQueryParams;
-}
+}*/
 
 function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);

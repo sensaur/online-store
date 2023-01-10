@@ -90,7 +90,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
         // rendering filtered or card
         // console.log('111', objectFromCurrenQueryParams);
         let isBig: boolean;
-         if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
+         if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big === 'true') {
             isBig = true;
         } else {
             isBig = false;
