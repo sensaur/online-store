@@ -82,8 +82,17 @@ if (copyLinkBtn instanceof HTMLElement) {
     });
 }
 
-// const bigSizeItemsPics = true;
-
 window.onload = () => {
-    slider();
-};
+    localStorage.clear();
+}
+
+
+const sliderBlock = document.querySelector('.sliderBlock');
+if (sliderBlock){
+    window.onload = () => {
+        slider();
+    };
+
+}
+
+

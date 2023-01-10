@@ -1,6 +1,7 @@
 import { IproductItem } from './IproductItem';
 
 function drawProductItems(listItems: IproductItem[], isBig: boolean) {
+
     if (isBig) {
         listItems.forEach((el) => {
             const itemEl = document.createElement('div');
@@ -41,10 +42,55 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean) {
                 const link = document.createElement('a');
                 link.href = `card.html`;
                 link.appendChild(details);
-                const addToCard = document.createElement('button');
-                addToCard.innerText = 'Add to cart';
+                const addToCart = document.createElement('button');
+                const totalSpan = document.querySelector('.total');
+                const cartContentDiv = document.querySelector('.cart-content');
+                let totalPrice = 0;
+               
+                addToCart.addEventListener(('click'), (ev) => {
+                    let cart = localStorage.getItem('cart');
+                    let itemsInCart: string[];
+                    if (cart){
+                       itemsInCart = cart.split(' ');
+                    } else {
+                        itemsInCart = [];
+                    }
+                    if (ev.target instanceof HTMLElement){
+                        ev.target.classList.toggle('inCart');
+                        if (ev.target.classList.contains('inCart')){
+                            ev.target.textContent = 'Drop from cart';
+                            ev.target.style.backgroundColor = '#fddf19';
+                            itemsInCart.push(`${el.price}`);
+                            totalPrice +=  el.price;
+                            if (totalSpan instanceof HTMLElement){
+                                totalPrice = itemsInCart.reduce((sum, e) => sum + parseInt(e), 0 );
+                                totalSpan.textContent = `${totalPrice}€`;
+                            };
+                        
+                            if (cartContentDiv instanceof HTMLElement){
+                                cartContentDiv.innerHTML = `${itemsInCart.length}`;
+                            };
+                            localStorage.setItem('cart', `${itemsInCart.join(' ')}`);
+                        } else {
+                            ev.target.textContent =  'Add to cart';
+                            console.log(itemsInCart.filter((e)=> e != `${el.price}`));
+                            const itemsInCartLeft = itemsInCart.filter((e)=> e != `${el.price}`);
+                            ev.target.style.backgroundColor = '#d6360f';
+                            if (totalSpan instanceof HTMLElement){
+                                totalPrice = itemsInCartLeft.reduce((sum, e) => sum + parseInt(e), 0 );
+                                totalSpan.textContent = `${totalPrice}€`;
+                            };
+                            if (cartContentDiv instanceof HTMLElement){
+                                cartContentDiv.innerHTML = `${itemsInCartLeft.length}`;
+                            };
+                            localStorage.setItem('cart', `${itemsInCartLeft.join(' ')}`);
+                            
+                        }
+                    }  
+                });
+                addToCart.innerText = 'Add to cart';
                 buttonsDiv.appendChild(link);
-                buttonsDiv.appendChild(addToCard);
+                buttonsDiv.appendChild(addToCart);
                 productInfo.appendChild(buttonsDiv);
                 const stat = document.getElementsByClassName('stat')[0];
                 stat.innerHTML = `Found: ${listItems.length}`;
@@ -78,13 +124,60 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean) {
                 buttonsDiv.classList.add('p_sm_product-price-btn');
                 const details = document.createElement('button');
                 details.innerText = 'Details';
+
                 const link = document.createElement('a');
                 link.href = `card.html`;
                 link.appendChild(details);
-                const addToCard = document.createElement('button');
-                addToCard.innerText = 'Add to cart';
+   
+                const addToCart = document.createElement('button');
+   
+                const totalSpan = document.querySelector('.total');
+                const cartContentDiv = document.querySelector('.cart-content');
+                let totalPrice = 0;
+                let cart = localStorage.getItem('cart');
+                addToCart.addEventListener(('click'), (ev) => {
+                   // let cart = localStorage.getItem('cart');
+                    let itemsInCart: string[];
+                    if (cart){
+                       itemsInCart = cart.split(' ');
+                    } else {
+                        itemsInCart = [];
+                    }
+                    if (ev.target instanceof HTMLElement){
+                        ev.target.classList.toggle('inCart');
+                        if (ev.target.classList.contains('inCart')){
+                            ev.target.textContent = 'Drop from cart';
+                            ev.target.style.backgroundColor = '#fddf19';
+                            itemsInCart.push(`${el.price}`);
+                            totalPrice +=  el.price;
+                            if (totalSpan instanceof HTMLElement){
+                                totalPrice = itemsInCart.reduce((sum, e) => sum + parseInt(e), 0 );
+                                totalSpan.textContent = `${totalPrice}€`;
+                            };
+
+                            if (cartContentDiv instanceof HTMLElement){
+                                cartContentDiv.innerHTML = `${itemsInCart.length}`;
+                            };
+                            localStorage.setItem('cart', `${itemsInCart.join(' ')}`);
+                        } else {
+                            ev.target.textContent =  'Add to cart';
+                            const itemsInCartLeft = itemsInCart.filter((e)=> e != `${el.price}`);
+                            ev.target.style.backgroundColor = '#d6360f';
+                            if (totalSpan instanceof HTMLElement){
+                                totalPrice = itemsInCartLeft.reduce((sum, e) => sum + parseInt(e), 0 );
+                                totalSpan.textContent = `${totalPrice}€`;
+                            };
+                            if (cartContentDiv instanceof HTMLElement){
+                                cartContentDiv.innerHTML = `${itemsInCartLeft.length}`;
+                            };
+                            localStorage.setItem('cart', `${itemsInCartLeft.join(' ')}`);
+                            
+                        }
+                    }  
+                });
+                addToCart.innerText = 'Add to cart';
                 buttonsDiv.appendChild(link);
-                buttonsDiv.appendChild(addToCard);
+                buttonsDiv.appendChild(addToCart);
                 productInfo.appendChild(buttonsDiv);
                 const stat = document.getElementsByClassName('stat')[0];
                 stat.innerHTML = `Found: ${listItems.length}`;

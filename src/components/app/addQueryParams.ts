@@ -6,7 +6,6 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     let objectFromCurrenQueryParams: ISearchParam = {};
     const currentUrl = window.location.href;
     const pathUrl = window.location.pathname;
-
     if (currentUrl !== pathUrl) {
         objectFromCurrenQueryParams = getCurrentParamsFromUrl();
     }

@@ -1,5 +1,6 @@
 function resetFilters() {
     window.location.href = `${window.location.pathname}`;
+    localStorage.clear();
 }
 export default resetFilters;
 
