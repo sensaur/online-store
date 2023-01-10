@@ -5,8 +5,7 @@ interface ISearchParam {
     stock?: string[];
     sort?: string[];
     search?: string;
-    big?: string;
-    productDetails?: string[];
+    big?: string[];
 }
 
 export default ISearchParam;
