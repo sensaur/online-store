@@ -21,13 +21,25 @@ function drawPageWithSearchParam() {
     }, {});
     console.log(objectFromCurrenQueryParams);
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = 'true');
-    // console.log('objectFromCurrenQueryParams111', objectFromCurrenQueryParams);
     const filteredItemsTotal = getItemsFiltered(objectFromCurrenQueryParams);
     filtersList(filteredItemsTotal);
-    getCheckboxChecked(objectFromCurrenQueryParams.category);
-    getCheckboxChecked(objectFromCurrenQueryParams.brand);
-    changePriceRangeFilteredItems(filteredItemsTotal);
-    changeStockRangeFilteredItems(filteredItemsTotal);
+    if (filteredItemsTotal){
+        if (filteredItemsTotal.length !== 0){
+            changePriceRangeFilteredItems(filteredItemsTotal);
+            changeStockRangeFilteredItems(filteredItemsTotal);
+        }
+        getCheckboxChecked(objectFromCurrenQueryParams.category);
+        getCheckboxChecked(objectFromCurrenQueryParams.brand);
+    }
+    
+    if (objectFromCurrenQueryParams.sort){
+        const select = document.querySelector('.sort');
+        if (select instanceof HTMLSelectElement){
+            select.value = objectFromCurrenQueryParams.sort;
+        }
+
+    }
+
 }
 
 function getNumberFoundItems(filteredItemsTotal: IproductItem[]) {

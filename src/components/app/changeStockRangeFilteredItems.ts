@@ -16,9 +16,7 @@ function changeStockRangeFilteredItems(filteredItemsTotal: IproductItem[] = prod
       } else {
         inputMinValue.value = inputMinValue.min;
         inputMaxValue.value = inputMinValue.max;
-      }
-
-        
+      }    
     }
 
     

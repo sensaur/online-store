@@ -5,7 +5,7 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     let objectFromCurrenQueryParams: ISearchParam = {};
     const currentUrl = window.location.href;
     const pathUrl = window.location.pathname;
-
+    
     if (currentUrl !== pathUrl) {
         objectFromCurrenQueryParams = getCurrentParamsFromUrl();
     }
@@ -13,23 +13,29 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     const searchKey: string = encodeURIComponent(keyParam);
     let searchValue: string;
 
-    if (searchKey === 'stock' || searchKey === 'price') {
+    if ((searchKey === 'stock') || (searchKey === 'price')) {
         searchValue = valueParam;
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        objectFromCurrenQueryParams[searchKey] = [searchValue];
+       objectFromCurrenQueryParams[searchKey] = [searchValue];
     } else {
-        if (searchKey === 'category' || searchKey === 'brand') {
+        if (searchKey === 'sort'){
+            searchValue = valueParam;
+            objectFromCurrenQueryParams[searchKey] = searchValue;
+        };
+        if ((searchKey === 'category') || (searchKey === 'brand')) {
             searchValue = encodeURIComponent(valueParam);
-            const arrPreviousValue = objectFromCurrenQueryParams[searchKey];
-            if (arrPreviousValue) {
-                arrPreviousValue.push(searchValue);
+            const arrayPrevious = objectFromCurrenQueryParams[searchKey];
+            if (arrayPrevious) {
+                arrayPrevious.push(searchValue);
+                objectFromCurrenQueryParams[searchKey] = arrayPrevious;
             } else {
                 objectFromCurrenQueryParams[searchKey] = [searchValue];
             }
-        }
-    }
+        };
+        
+        
 
+    }
+   
     // window.history.pushState(objectFromCurrenQueryParams, '', currentUrl);
     window.location.search = `?${getNewUrlWithAllParams(objectFromCurrenQueryParams)}`;
 }
@@ -62,5 +68,7 @@ function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
         .slice(0, -1);
     return stringWithNewQueryParams;
 }
+
+
 
 export default addQueryParamsToUrl;
