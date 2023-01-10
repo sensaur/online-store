@@ -1,7 +1,7 @@
-import { IproductItem } from "./IproductItem";
+import { IproductItem } from './IproductItem';
 
+function drawProductItems(listItems: IproductItem[], isBig: boolean) {
 
-function drawProductItems(listItems: IproductItem[], isBig: boolean){
     if (isBig) {
         listItems.forEach((el) => {
             const itemEl = document.createElement('div');
@@ -128,9 +128,9 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean){
                 const link = document.createElement('a');
                 link.href = `card.html`;
                 link.appendChild(details);
-        
+   
                 const addToCart = document.createElement('button');
-            
+   
                 const totalSpan = document.querySelector('.total');
                 const cartContentDiv = document.querySelector('.cart-content');
                 let totalPrice = 0;
@@ -185,7 +185,6 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean){
             }
         });
     }
-
 }
 
 export default drawProductItems;

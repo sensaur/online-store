@@ -17,12 +17,14 @@ const slider = function () {
     }
 
     function goToSlide(n: number) {
-        slides[currentSlide].className = 'sliderBlock_items__itemPhoto';
-        items.children[currentSlide].className = 'sliderBlock_positionControls__paginatorItem';
-        currentSlide = (n + slides.length) % slides.length;
-        slides[currentSlide].className = 'sliderBlock_items__itemPhoto sliderBlock_items__showing';
-        items.children[currentSlide].className =
-            'sliderBlock_positionControls__paginatorItem sliderBlock_positionControls__active';
+        if (slides.length > 0) {
+            slides[currentSlide].className = 'sliderBlock_items__itemPhoto';
+            items.children[currentSlide].className = 'sliderBlock_positionControls__paginatorItem';
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].className = 'sliderBlock_items__itemPhoto sliderBlock_items__showing';
+            items.children[currentSlide].className =
+                'sliderBlock_positionControls__paginatorItem sliderBlock_positionControls__active';
+        }
     }
 
     if (next) {
