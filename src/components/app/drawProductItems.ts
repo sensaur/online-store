@@ -1,6 +1,6 @@
-import { IproductItem } from "./IproductItem";
+import { IproductItem } from './IproductItem';
 
-function drawProductItems(listItems: IproductItem[], isBig: boolean){
+function drawProductItems(listItems: IproductItem[], isBig: boolean) {
     if (isBig) {
         listItems.forEach((el) => {
             const itemEl = document.createElement('div');
@@ -96,7 +96,6 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean){
             }
         });
     }
-
 }
 
 export default drawProductItems;

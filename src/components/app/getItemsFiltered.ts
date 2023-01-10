@@ -68,28 +68,24 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
                 return filteredByPrice.filter((el) => el.stock >= min && el.stock <= max);
             }
         };
-        
+
         // getting result
         const filteredItemsTotal = filterByStock();
 
         // filtering
         // console.log('filteredItemsTotal=>', filteredItemsTotal);
 
-      
-       
         let isBig: boolean;
-         if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
+        if (objectFromCurrenQueryParams.big && objectFromCurrenQueryParams?.big[0] === 'true') {
             isBig = true;
         } else {
             isBig = false;
         }
-      //  drawProductItems(filteredItemsTotal, isBig);
+        //  drawProductItems(filteredItemsTotal, isBig);
         return filteredItemsTotal;
     } catch (err) {
         console.log("Issues with Parsing URL Parameter's - " + err);
     }
 }
-
-
 
 export default getItemsFiltered;

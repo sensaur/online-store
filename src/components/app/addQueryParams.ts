@@ -6,7 +6,7 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     let objectFromCurrenQueryParams: ISearchParam = {};
     const currentUrl = window.location.href;
     const pathUrl = window.location.pathname;
-    
+
     if (currentUrl !== pathUrl) {
         objectFromCurrenQueryParams = getCurrentParamsFromUrl();
     }
@@ -14,34 +14,25 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
     const searchKey: string = encodeURIComponent(keyParam);
     let searchValue: string;
 
-    switch(searchKey){
-        case('stock'):
-        case('price'):
-        case ('sort'):
-            searchValue = valueParam;
+    if (searchKey === 'stock' || searchKey === 'price' || searchKey === 'sort') {
+        searchValue = valueParam;
+        objectFromCurrenQueryParams[searchKey] = [searchValue];
+    } else if (searchKey === 'brand' || searchKey === 'category') {
+        const arrayPrevious = objectFromCurrenQueryParams[searchKey];
+        searchValue = encodeURIComponent(valueParam);
+        if (arrayPrevious) {
+            arrayPrevious.push(searchValue);
+            objectFromCurrenQueryParams[searchKey] = arrayPrevious;
+        } else {
             objectFromCurrenQueryParams[searchKey] = [searchValue];
-            break;
-        case ('brand'):
-        case ('category'):
-            searchValue = encodeURIComponent(valueParam);
-            const arrayPrevious = objectFromCurrenQueryParams[searchKey];
-            if (arrayPrevious) {
-                arrayPrevious.push(searchValue);
-                objectFromCurrenQueryParams[searchKey] = arrayPrevious;
-            } else {
-                objectFromCurrenQueryParams[searchKey] = [searchValue];
-            }
-            break;
-        case ('big'):
-            searchValue = valueParam;
-            objectFromCurrenQueryParams[searchKey] = searchValue;
-            break;
+        }
+    } else if (searchKey === 'big') {
+        searchValue = valueParam;
+        objectFromCurrenQueryParams[searchKey] = [searchValue];
     }
-         
+
     window.location.search = `?${getNewUrlWithAllParams(objectFromCurrenQueryParams)}`;
 }
-
-
 
 function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
     const arrWithNewQueryParams = Object.entries(objectFromCurrenQueryParams);
@@ -49,18 +40,16 @@ function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
     const stringWithNewQueryParams = arrWithNewQueryParams
         .reduce((res, e) => {
             if (e[0]) {
-                if (typeof e[1] === 'string'){
+                if (typeof e[1] === 'string') {
                     res += `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1])}&`;
-                }  else {
+                } else {
                     res += `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`;
-                }  
+                }
             }
             return res;
         }, '')
         .slice(0, -1);
     return stringWithNewQueryParams;
 }
-
-
 
 export default addQueryParamsToUrl;

@@ -1,4 +1,4 @@
-import ISearchParam from "./ISearchParam";
+import ISearchParam from './ISearchParam';
 function getCurrentParamsFromUrl() {
     const currentUrl = new URL(window.location.href);
     let objectFromCurrenQueryParams: ISearchParam = {};
