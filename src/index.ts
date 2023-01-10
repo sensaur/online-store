@@ -84,6 +84,6 @@ if (copyLinkBtn instanceof HTMLElement) {
 
 // const bigSizeItemsPics = true;
 
-/*window.onload = () => {
+window.onload = () => {
     slider();
-};*/
+};
