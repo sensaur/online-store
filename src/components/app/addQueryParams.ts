@@ -34,7 +34,7 @@ function addQueryParamsToUrl(valueParam: string, keyParam: string) {
             break;
         case ('big'):
             searchValue = valueParam;
-            objectFromCurrenQueryParams[searchKey] = searchValue;
+            objectFromCurrenQueryParams[searchKey] = [searchValue];
             break;
     }
          
