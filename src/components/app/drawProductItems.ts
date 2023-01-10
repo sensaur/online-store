@@ -38,10 +38,12 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean) {
                 buttonsDiv.classList.add('p_product-price-btn');
                 const details = document.createElement('button');
                 details.innerText = 'Details';
-                details.addEventListener('click', () => {});
+                const link = document.createElement('a');
+                link.href = `card.html`;
+                link.appendChild(details);
                 const addToCard = document.createElement('button');
                 addToCard.innerText = 'Add to cart';
-                buttonsDiv.appendChild(details);
+                buttonsDiv.appendChild(link);
                 buttonsDiv.appendChild(addToCard);
                 productInfo.appendChild(buttonsDiv);
                 const stat = document.getElementsByClassName('stat')[0];
@@ -77,14 +79,8 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean) {
                 const details = document.createElement('button');
                 details.innerText = 'Details';
                 const link = document.createElement('a');
-                // link.href = `productDetails/${el.id}`;
                 link.href = `card.html`;
                 link.appendChild(details);
-                // details.addEventListener('click', (e) => {
-                //     e.preventDefault();
-                //     const currentUrl = new URL(window.location.href);
-                //     window.location.search = `productDetails=${el.id}`;
-                // });
                 const addToCard = document.createElement('button');
                 addToCard.innerText = 'Add to cart';
                 buttonsDiv.appendChild(link);
