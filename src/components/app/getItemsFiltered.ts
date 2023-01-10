@@ -95,7 +95,7 @@ function getItemsFiltered(objectFromCurrenQueryParams: ISearchParam) {
         } else {
             isBig = false;
         }
-        drawProductItems(filteredItemsTotal, isBig);
+      //  drawProductItems(filteredItemsTotal, isBig);
         return filteredItemsTotal;
     } catch (err) {
         console.log("Issues with Parsing URL Parameter's - " + err);

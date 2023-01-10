@@ -1,8 +1,8 @@
 import { IproductItem } from "./IproductItem";
 
-function drawProductItems(filteredItemsTotal: IproductItem[], isBig: boolean){
+function drawProductItems(listItems: IproductItem[], isBig: boolean){
     if (isBig) {
-        filteredItemsTotal.forEach((el) => {
+        listItems.forEach((el) => {
             const itemEl = document.createElement('div');
             itemEl.classList.add('p_wrapper');
             const itemWrapper = document.createElement('div');
@@ -45,12 +45,12 @@ function drawProductItems(filteredItemsTotal: IproductItem[], isBig: boolean){
                 buttonsDiv.appendChild(addToCard);
                 productInfo.appendChild(buttonsDiv);
                 const stat = document.getElementsByClassName('stat')[0];
-                stat.innerHTML = `Found: ${filteredItemsTotal.length}`;
+                stat.innerHTML = `Found: ${listItems.length}`;
                 productItems.appendChild(itemEl);
             }
         });
     } else {
-        filteredItemsTotal.forEach((el) => {
+        listItems.forEach((el) => {
             const itemEl = document.createElement('div');
             itemEl.classList.add('p_sm_wrapper');
             const itemWrapper = document.createElement('div');
@@ -91,7 +91,7 @@ function drawProductItems(filteredItemsTotal: IproductItem[], isBig: boolean){
                 buttonsDiv.appendChild(addToCard);
                 productInfo.appendChild(buttonsDiv);
                 const stat = document.getElementsByClassName('stat')[0];
-                stat.innerHTML = `Found: ${filteredItemsTotal.length}`;
+                stat.innerHTML = `Found: ${listItems.length}`;
                 productItems.appendChild(itemEl);
             }
         });

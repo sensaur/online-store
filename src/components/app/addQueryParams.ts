@@ -61,7 +61,11 @@ function getNewUrlWithAllParams(objectFromCurrenQueryParams: ISearchParam) {
     const stringWithNewQueryParams = arrWithNewQueryParams
         .reduce((res, e) => {
             if (e[0]) {
-                res += `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`;
+                if (typeof e[1] === 'string'){
+                    res += `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1])}&`;
+                }  else {
+                    res += `${encodeURIComponent(e[0])}=${encodeURIComponent(e[1].join('↕'))}&`;
+                }  
             }
             return res;
         }, '')

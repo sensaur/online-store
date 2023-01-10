@@ -6,17 +6,25 @@ import { IproductItem } from './IproductItem';
 import filtersList from './filters';
 import changePriceRangeFilteredItems from './changePriceRangeFilteredItems';
 import changeStockRangeFilteredItems from './changeStockRangeFilteredItems';
-import getFilteredByPrice from './getFilteredByPrice';
+import getItemsSorted from './getItemsSorted';
+import drawProductItems from './drawProductItems';
+
 
 function drawPageWithSearchParam() {
     const currentUrl = new URL(window.location.href);
     let objectFromCurrenQueryParams: ISearchParam = {};
+    
     const currentQueryParamsString = decodeURIComponent(currentUrl.search).slice(1).split('&');
     const arFromCurrentQueryParams = currentQueryParamsString.map((e) => {
         return e.split('=');
     });
-    objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[] }, e) => {
-        obj[e[0]] = e[1]?.split('↕');
+
+    objectFromCurrenQueryParams = arFromCurrentQueryParams.reduce((obj: { [key: string]: string[]| string }, e) => {
+        if (e[1]?.includes('↕')){
+            obj[e[0]] = e[1]?.split('↕');
+        } else {
+            obj[e[0]] = e[1];
+        }
         return obj;
     }, {});
     console.log(objectFromCurrenQueryParams);
@@ -32,13 +40,20 @@ function drawPageWithSearchParam() {
         getCheckboxChecked(objectFromCurrenQueryParams.brand);
     }
     
-    if (objectFromCurrenQueryParams.sort){
+    let sortedItems = filteredItemsTotal;
+    if ((objectFromCurrenQueryParams.sort) && (filteredItemsTotal)){
         const select = document.querySelector('.sort');
         if (select instanceof HTMLSelectElement){
             select.value = objectFromCurrenQueryParams.sort;
+            console.log(objectFromCurrenQueryParams.sort);
+            sortedItems = getItemsSorted(objectFromCurrenQueryParams.sort, filteredItemsTotal);
         }
-
     }
+
+    if (sortedItems){
+        drawProductItems(sortedItems, true);
+    }
+    
 
 }
 
