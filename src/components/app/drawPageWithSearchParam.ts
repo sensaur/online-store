@@ -9,8 +9,10 @@ import changeStockRangeFilteredItems from './changeStockRangeFilteredItems';
 import getItemsSorted from './getItemsSorted';
 import drawProductItems from './drawProductItems';
 import getCurrentParamsFromUrl from './getCurrentParamsFromURL';
+import getSearchStringValue from './getSearchStringValue';
 
 function drawPageWithSearchParam() {
+    getSearchStringValue();
     const objectFromCurrenQueryParams = getCurrentParamsFromUrl();
     objectFromCurrenQueryParams.big ? null : (objectFromCurrenQueryParams.big = ['true']);
     const filteredItemsTotal = getItemsFiltered(objectFromCurrenQueryParams);
