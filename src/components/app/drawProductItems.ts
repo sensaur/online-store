@@ -108,7 +108,7 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean) {
             itemEl.appendChild(itemWrapper);
             itemWrapper.appendChild(image);
             const productItems = document.getElementById('products__items_sm');
-            // const productItems = document.getElementById('products__items');
+            
 
             if (productItems) {
                 const productInfo = document.createElement('div');
@@ -136,7 +136,7 @@ function drawProductItems(listItems: IproductItem[], isBig: boolean) {
                 let totalPrice = 0;
                 let cart = localStorage.getItem('cart');
                 addToCart.addEventListener(('click'), (ev) => {
-                   // let cart = localStorage.getItem('cart');
+                    let cart = localStorage.getItem('cart');
                     let itemsInCart: string[];
                     if (cart){
                        itemsInCart = cart.split(' ');
